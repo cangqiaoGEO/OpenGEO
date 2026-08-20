@@ -1,4 +1,4 @@
-# 仓桥 GEO 作战系统（cangqiaoGEO）
+# OpenGEO · 仓桥 GEO 作战系统
 
 > **让 AI 看见、相信并推荐你的产品——方法全部开源，因为方法透明是对抗「割韭菜」的唯一解。**
 
@@ -69,6 +69,8 @@ GEO（Generative Engine Optimization，生成式引擎优化）正在成为企�
 1. **给自己打个分**：按 [`skills/S1-diagnosis/`](skills/S1-diagnosis/) 跑一次品牌诊断，拿到六维基线分数与 P0 清单；
 2. **建品牌事实库**：复制 [`brand-facts/template/`](brand-facts/template/)，填 11 类概念文件（你公司对外口径的唯一底稿）；
 3. **跑 28 天循环**：教材第八章路线图——第 1 周打地基、第 2 周上内容、第 3 周建权威、第 4 周复测对比。
+
+**官方参考实现（v1）：Tencent WorkBuddy。** 按 [`system/workbuddy-implementation.md`](system/workbuddy-implementation.md) 半天即可搭好整套系统：本地文件夹项目=事实库，专家团=总控 Agent，自建 Skill=七技，自动化定时任务=复测闭环，IM 助理=老板审批入口。系统本身平台无关——七技是提示词规格，任何 Agent 平台（Claude Code、扣子、Dify 等）都能实现，欢迎 PR 其他平台的实现。
 
 ## 案例数据声明
 

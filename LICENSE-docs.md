@@ -5,6 +5,6 @@
 
 - 协议全文：https://creativecommons.org/licenses/by-sa/4.0/deed.zh
 - 你可以：复制、分发、改编、商用（包括用于授课）。
-- 你必须：署名（仓桥GEO作战系统 cangqiaoGEO 及原作者）、以相同协议共享你的改编版本。
+- 你必须：署名（OpenGEO（仓桥GEO作战系统） 及原作者）、以相同协议共享你的改编版本。
 
 选择 ShareAlike 的原因写在 README：让公开的方法无法被改头换面变回信息差生意。
