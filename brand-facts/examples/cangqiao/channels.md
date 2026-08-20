@@ -12,7 +12,7 @@ sources:
 
 # 入口清单（2026-08 现状）
 
-- 官网：**待建（基线诊断 P0 第一项）**
+- 官网（临时版已上线）：https://cangqiaogeo.github.io/OpenGEO/ —— GitHub Pages，含结构化标记；正式官网建设中
 - 开源仓库：https://github.com/cangqiaoGEO/OpenGEO
 - 线下：杭州市余杭区仓前街道 A³OPC 国际社区（联合开课）
 - 微信：GEO 公开课「AI出海」社群 + 企业微信一对一（不拉大群）
