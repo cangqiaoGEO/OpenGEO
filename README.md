@@ -59,7 +59,8 @@ GEO（Generative Engine Optimization，生成式引擎优化）正在成为企�
 
 | 目录 | 内容 |
 | --- | --- |
-| [`textbook/`](textbook/) | 《GEO 没那么难》学员教材全文（八章+附录：认知/诊断/原理/战略/方法/执行/案例/行动） |
+| [`coursebook/`](coursebook/) | **详解版在线教程**（8 篇+16 张图解+实操框，[在线阅读](https://cangqiaogeo.github.io/OpenGEO/course/)） |
+| [`textbook/`](textbook/) | 学员教材单文件精简版 |
 | [`system/`](system/) | 作战系统架构与叙事、WorkBuddy 平台落地实现方案 |
 | [`skills/`](skills/) | 七技全部实现：S1 诊断工具完整技能（指标体系+评分脚本+报告生成）、S2~S7 提示词规格、总控 Agent 提示词、两条自动化任务模板 |
 | [`brand-facts/`](brand-facts/) | 品牌事实库：OKF L1 规范 + 可直接复制的 bundle 模板 |

@@ -1,0 +1,1084 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="让 AI 看见、相信并推荐你的产品——给企业老板的 GEO 完整教程（OpenGEO 开源项目）">
+      
+      
+      
+        <link rel="canonical" href="https://cangqiaogeo.github.io/OpenGEO/course/ch01/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../ch02/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>第一篇 认知｜客户去哪了 - GEO 没那么难 · 详解版教程</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="GEO 没那么难 · 详解版教程" class="md-header__button md-logo" aria-label="GEO 没那么难 · 详解版教程" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GEO 没那么难 · 详解版教程
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              第一篇 认知｜客户去哪了
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="切换到暗色"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到暗色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="amber"  aria-label="切换到亮色"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到亮色" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cangqiaoGEO/OpenGEO" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cangqiaoGEO/OpenGEO
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GEO 没那么难 · 详解版教程" class="md-nav__button md-logo" aria-label="GEO 没那么难 · 详解版教程" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    GEO 没那么难 · 详解版教程
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cangqiaoGEO/OpenGEO" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    cangqiaoGEO/OpenGEO
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一篇 认知｜客户去哪了
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第一篇 认知｜客户去哪了
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 从一只酱板鸭说起
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 生意的本质没变：三个环节，缺一不可
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 生意的本质没变：三个环节，缺一不可">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        黄金五法则
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 数据看清趋势：AI 已是全民级入口
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 最本质的变化：信任结构从「人」迁移到「AI」
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 国内 AI 平台格局：用户在哪里，阵地就在哪里
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 从脑白金到 AI 时代：生意的逻辑没变
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 行动检查
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第二篇 诊断｜先打个分
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第三篇 原理｜AI怎么选商家
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第四篇 战略｜定位标签化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第五篇 方法｜四步法×七步落地
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第六篇 执行｜作战系统与AI员工
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第七篇 案例｜八个案例拆解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第八篇 行动｜28天与90天
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-a/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录A 模板与提示词
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-b/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    附录B 术语表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../live/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    公开自测直播间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 从一只酱板鸭说起
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 生意的本质没变：三个环节，缺一不可
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 生意的本质没变：三个环节，缺一不可">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        黄金五法则
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 数据看清趋势：AI 已是全民级入口
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 最本质的变化：信任结构从「人」迁移到「AI」
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 国内 AI 平台格局：用户在哪里，阵地就在哪里
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 从脑白金到 AI 时代：生意的逻辑没变
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 行动检查
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">第一篇 认知｜你的客户去哪了<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>一句话总结：客户有需求先问 AI 了，AI 只推荐 3~4 家——没上牌桌的企业，正在无声地失去入场资格。</strong></p>
+</blockquote>
+<h2 id="11">1.1 从一只酱板鸭说起<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<p>游客到长沙想吃地道酱板鸭。他先自己搜——怀疑排行榜有水分；再问朋友——怕不地道、怕踩雷、怕被推荐吃回扣；最后他打开豆包问了一句「长沙哪家酱板鸭最正宗」。AI 从几十个品牌里浓缩推荐了 3~4 个，他就在这 3~4 个里选了一家。</p>
+<p><strong>其余几十家发生了什么？什么都没发生——这正是最可怕的地方。</strong> 它们没有被拒绝，它们是压根没有出现。</p>
+<div class="admonition warning">
+<p class="admonition-title">老板划重点</p>
+<p>传统获客的失败是「客户看了没选你」，AI 时代的失败是「客户根本不知道你存在」。前者你还有机会改进话术，后者你连输在哪里都不知道。</p>
+</div>
+<h2 id="12">1.2 生意的本质没变：三个环节，缺一不可<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../assets/figures/f02-three-steps.svg" />
+<em>图解｜被看见 → 被信任 → 被选择：任何时代的生意都是这三步</em></p>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>含义</th>
+<th>传统动作</th>
+<th>现在的动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 被看见</td>
+<td>先让潜在客户知道你</td>
+<td>地段、展会、地推、电销、投流</td>
+<td><strong>进入 AI 的推荐名单</strong></td>
+</tr>
+<tr>
+<td>② 被信任</td>
+<td>客户凭什么信你</td>
+<td>品牌广告、口碑、资质</td>
+<td><strong>AI 能验证的证据链</strong></td>
+</tr>
+<tr>
+<td>③ 被选择</td>
+<td>差异化打动客户</td>
+<td>销售话术、促销</td>
+<td><strong>AI 转述你的差异点</strong></td>
+</tr>
+</tbody>
+</table>
+<p>成功公式：<strong>生意 = 流量 × 信任 × 转化</strong>。近两年变化最大的是「被看见」——展会冷清、电销被拒、投流变贵，不是你做得差了，是客户的注意力搬家了。</p>
+<h3 id="_2">黄金五法则<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>在哪里被看见，就在哪里建渠道——渠道是入口，不是装饰；</li>
+<li>在哪里建渠道，就在哪里打广告——广告跟着渠道走，不逆向；</li>
+<li>在哪里打广告，就在哪里做销售——转化路径必须最短；</li>
+<li>客户把时间花在哪里，我们就必须出现在哪里；</li>
+<li>每个渠道都有「红利窗口期」，错过等于错过时代。</li>
+</ol>
+<p><img alt="" src="../assets/figures/f04-channel-waves.svg" />
+<em>图解｜渠道红利迁徙：抖音 7 年（2018-2024）→ 视频号 5 年（2022-2027）→ AI 对话框（2025-2030，正在早期）</em></p>
+<h2 id="13-ai">1.3 数据看清趋势：AI 已是全民级入口<a class="headerlink" href="#13-ai" title="Permanent link">&para;</a></h2>
+<ul>
+<li>截至 2025 年 12 月，中国 AI 用户规模 <strong>6.02 亿</strong>，约占网民 53%——用户基础不是「早期尝鲜者」，是「全民」；</li>
+<li>较 2024 年底增长 <strong>+147%</strong>，约每 7 个月翻一倍；</li>
+<li>搜索引擎用 18 年达到的渗透率，AI 只用了 2 年。2026—27 年，AI 将成为像水电一样的基础设施。</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">现场实测（现在就做，2 分钟）</p>
+<p>打开豆包或元宝，输入：<strong>「[你的城市][你的品类]哪家好」</strong>。</p>
+<p>看三件事：① 答案里有你吗？② 推荐了谁？③ 它引用了什么来源？</p>
+<p>——这一问的结果，比本教程任何一句话都有说服力。</p>
+</div>
+<h2 id="14-ai">1.4 最本质的变化：信任结构从「人」迁移到「AI」<a class="headerlink" href="#14-ai" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../assets/figures/f03-trust-shift.svg" />
+<em>图解｜信任的天平正在倾斜：从「信自己搜的、信朋友说的」到「信 AI 答的」</em></p>
+<table>
+<thead>
+<tr>
+<th>过去：信任「人」</th>
+<th>现在：信任「AI」</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>相信自己搜出来的「十大排行」</td>
+<td>越来越相信 AI 给出的答案</td>
+</tr>
+<tr>
+<td>相信商家「精心撰写」的自我介绍</td>
+<td>有事先问 AI：攻略/推荐/对比/决策</td>
+</tr>
+<tr>
+<td>比价、比口碑、反复权衡，决策周期 7~14 天</td>
+<td>决策被压缩：在 AI 给的 3~4 个选项里直接选</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GEO 的定义由此而来：在用户询问 AI 的时刻，成为 AI 愿意推荐的那一家。</strong> AI 推荐位 = 新时代的黄金广告位，一次只给 3~4 个名额；信任分越高 → 推荐权重越大 → 持续受益。</p>
+<h2 id="15-ai">1.5 国内 AI 平台格局：用户在哪里，阵地就在哪里<a class="headerlink" href="#15-ai" title="Permanent link">&para;</a></h2>
+<p>月活（2026 年公开口径）：豆包 3.45 亿 &gt; 通义千问 1.66 亿 &gt; DeepSeek 1.27 亿 &gt; 元宝 0.57 亿 &gt; Kimi 0.08 亿 &gt; 文心一言 0.05 亿。</p>
+<div class="admonition tip">
+<p class="admonition-title">两大必争生态与一个陷阱</p>
+<ul>
+<li><strong>字节系（豆包）</strong>：当前用户量第一，必争；</li>
+<li><strong>腾讯系</strong>：微信内置 AI Agent「小V」灰度内测中，公测后直达微信 14 亿日活——现在布局微信生态，相当于 5 年前开抖音号；</li>
+<li><strong>小红书陷阱</strong>：不被各大 AI 稳定抓取——适合获客种草，<strong>不适合当 GEO 信源</strong>。资源有限时，聚焦 1~2 个核心生态打透再扩展。</li>
+</ul>
+</div>
+<h2 id="16-ai">1.6 从脑白金到 AI 时代：生意的逻辑没变<a class="headerlink" href="#16-ai" title="Permanent link">&para;</a></h2>
+<p>脑白金为什么火？一是广告重复（<strong>七次原则</strong>：用户至少看到七次才产生记忆与购买），二是线下渠道铺满——广告+渠道，缺一不可。</p>
+<ul>
+<li>第 1—3 次触达：无感 → 眼熟；第 4—6 次：好像在哪见过；第 7 次以上：知名品牌，可以选；</li>
+<li>迁移到今天：<strong>AI 对话框 = 新广告位，内容矩阵 = 新渠道</strong>——GEO + 矩阵，就是当代的「广告 + 渠道」；矩阵高频曝光 = 数字时代的「七次重复」。</li>
+</ul>
+<h2 id="_3">✅ 行动检查<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[ ] 用自己的品牌做了 1.3 节的 2 分钟实测，记下了 AI 推荐了谁；</li>
+<li>[ ] 判断了自己的主生态：字节系 / 腾讯系 / 通用 AI，先打哪个；</li>
+<li>[ ] 给团队转述了一句话：「客户的选项被 AI 收窄了，我们要上牌桌。」</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="上一页: 导读">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                导读
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch02/" class="md-footer__link md-footer__link--next" aria-label="下一页: 第二篇 诊断｜先打个分">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                第二篇 诊断｜先打个分
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 仓桥智能 · CC BY-SA 4.0 · 不承诺排名，只承诺诊断-改进-复测
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

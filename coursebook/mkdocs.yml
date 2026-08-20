@@ -1,0 +1,55 @@
+site_name: GEO 没那么难 · 详解版教程
+site_description: 让 AI 看见、相信并推荐你的产品——给企业老板的 GEO 完整教程（OpenGEO 开源项目）
+site_url: https://cangqiaogeo.github.io/OpenGEO/course/
+repo_name: cangqiaoGEO/OpenGEO
+repo_url: https://github.com/cangqiaoGEO/OpenGEO
+site_dir: ../docs/course
+copyright: Copyright &copy; 2026 仓桥智能 · CC BY-SA 4.0 · 不承诺排名，只承诺诊断-改进-复测
+
+theme:
+  name: material
+  language: zh
+  palette:
+    - scheme: default
+      primary: deep orange
+      accent: orange
+      toggle: { icon: material/brightness-7, name: 切换到暗色 }
+    - scheme: slate
+      primary: deep orange
+      accent: amber
+      toggle: { icon: material/brightness-4, name: 切换到亮色 }
+  font:
+    text: Noto Sans SC
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - 导读: index.md
+  - 第一篇 认知｜客户去哪了: ch01.md
+  - 第二篇 诊断｜先打个分: ch02.md
+  - 第三篇 原理｜AI怎么选商家: ch03.md
+  - 第四篇 战略｜定位标签化: ch04.md
+  - 第五篇 方法｜四步法×七步落地: ch05.md
+  - 第六篇 执行｜作战系统与AI员工: ch06.md
+  - 第七篇 案例｜八个案例拆解: ch07.md
+  - 第八篇 行动｜28天与90天: ch08.md
+  - 附录A 模板与提示词: appendix-a.md
+  - 附录B 术语表: appendix-b.md
+  - 公开自测直播间: live.md
