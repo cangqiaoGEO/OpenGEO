@@ -1,0 +1,148 @@
+{
+  "brand": "仓桥智能",
+  "queries": [
+    {
+      "query": "杭州 GEO培训 企业获客 哪家好",
+      "engine": "WebSearch模拟",
+      "position": "absent",
+      "recommendation": "neutral",
+      "citations": [
+        {
+          "type": "low_quality",
+          "brand_owned": false
+        },
+        {
+          "type": "third_party",
+          "brand_owned": false
+        }
+      ],
+      "sentiment": "neutral",
+      "coverage": {
+        "intro": false,
+        "selling_points": false,
+        "products": false,
+        "pricing": false,
+        "reputation": false,
+        "news": false
+      },
+      "errors": 0
+    },
+    {
+      "query": "GEO培训课程怎么选 避坑",
+      "engine": "WebSearch模拟",
+      "position": "absent",
+      "recommendation": "neutral",
+      "citations": [
+        {
+          "type": "third_party",
+          "brand_owned": false
+        },
+        {
+          "type": "media",
+          "brand_owned": false
+        }
+      ],
+      "sentiment": "neutral",
+      "coverage": {
+        "intro": false,
+        "selling_points": false,
+        "products": false,
+        "pricing": false,
+        "reputation": false,
+        "news": false
+      },
+      "errors": 0
+    },
+    {
+      "query": "仓桥智能 杭州 AI",
+      "engine": "WebSearch模拟",
+      "position": "absent",
+      "recommendation": "neutral",
+      "citations": [],
+      "sentiment": "neutral",
+      "coverage": {
+        "intro": false,
+        "selling_points": false,
+        "products": false,
+        "pricing": false,
+        "reputation": false,
+        "news": false
+      },
+      "errors": 0
+    },
+    {
+      "query": "\"杭州仓桥智能科技\"（精确品牌词）",
+      "engine": "WebSearch模拟",
+      "position": "absent",
+      "recommendation": "neutral",
+      "citations": [],
+      "sentiment": "neutral",
+      "coverage": {
+        "intro": false,
+        "selling_points": false,
+        "products": false,
+        "pricing": false,
+        "reputation": false,
+        "news": false
+      },
+      "errors": 0
+    }
+  ],
+  "foundation": {
+    "wiki": false,
+    "official_site_structured": false,
+    "third_party_count": 0,
+    "knowledge_graph": false,
+    "content_active": true
+  },
+  "suggestions": [
+    {
+      "priority": "P0",
+      "timeline": "1~2 周内",
+      "action": "建设可检索官网：三大业务方向+产品矩阵+FAQ 全文字化（不锁图片），部署基础 SEO 配置；同步把 OpenGEO 开源仓库、公司介绍 PDF 的内容发布为可索引网页",
+      "dimension": "内容基础",
+      "effect": "品牌精确词当前在搜索引擎零结果——官网是让 AI『找得到』的第一基础设施",
+      "measure": "官网上线 1 个月后复查品牌直达查询出现 official 引用源"
+    },
+    {
+      "priority": "P0",
+      "timeline": "1~2 周内",
+      "action": "创建百度百科词条「杭州仓桥智能科技有限公司」，与近似名（江湾智能/慧仓智能/常桥科技）消歧；全网统一使用全称+『仓桥智能』绑定",
+      "dimension": "可见度",
+      "effect": "当前搜品牌词出现的全是同名近似公司，存在被混淆风险",
+      "measure": "百科收录后品牌直达查询正确指向"
+    },
+    {
+      "priority": "P0",
+      "timeline": "2~4 周内",
+      "action": "以《GEO 培训怎么选：避坑指南》为切入发布系列权威内容——市场已在讨论『无套路不割韭菜』『6 类交付物验收』，我们的口径宪章与诊断-改进-复测模式恰好命中全部避坑标准",
+      "dimension": "推荐度",
+      "effect": "品类查询被竞品软文盘点占据，但『反割韭菜』角度存在权威内容空白",
+      "measure": "品类推荐查询中从 absent 提升至 mention"
+    },
+    {
+      "priority": "P1",
+      "timeline": "1~2 个月",
+      "action": "权威第三方内容≥5 篇：政务交付（仓前街道/龙岗统计慧答）新闻稿、A³OPC 社区活动报道、知乎专业回答",
+      "dimension": "引用源质量",
+      "effect": "当前第三方权威内容为 0",
+      "measure": "third_party_count ≥5"
+    },
+    {
+      "priority": "P1",
+      "timeline": "1~2 个月",
+      "action": "公众号+视频号地基：GEO 课程与案例内容周更，同一内容≥3 平台互证",
+      "dimension": "信息覆盖度",
+      "effect": "AI 可引用信息维度当前 0/6",
+      "measure": "coverage 提升至 3/6"
+    },
+    {
+      "priority": "P2",
+      "timeline": "持续",
+      "action": "每周一 S7 复测 20 问并公开分数趋势（OpenGEO 仓库直播本案例）",
+      "dimension": "全部",
+      "effect": "复测闭环本身成为最强获客叙事",
+      "measure": "28 天后综合分 ≥30"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>仓桥智能 GEO 诊断报告</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#f4f6f9;color:#1f2937;line-height:1.6;padding:32px 16px}
+.wrap{max-width:960px;margin:0 auto}
+.header{background:linear-gradient(135deg,#0f2a43,#1d4ed8);color:#fff;border-radius:16px;padding:32px;margin-bottom:24px}
+.header h1{font-size:28px;margin-bottom:6px}
+.header .sub{opacity:.85;font-size:14px}
+.score-row{display:flex;align-items:center;gap:24px;margin-top:20px;flex-wrap:wrap}
+.big-score{font-size:56px;font-weight:800;line-height:1}
+.grade-badge{display:inline-block;padding:8px 18px;border-radius:999px;font-weight:700;font-size:16px;color:#fff}
+.summary{margin-top:16px;font-size:15px;background:rgba(255,255,255,.12);border-radius:10px;padding:12px 16px}
+.card{background:#fff;border-radius:14px;padding:24px;margin-bottom:20px;box-shadow:0 1px 4px rgba(16,24,40,.08)}
+.card h2{font-size:18px;margin-bottom:16px;color:#0f2a43;border-left:4px solid #1d4ed8;padding-left:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:720px){.grid2{grid-template-columns:1fr}}
+.dim{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.dim-name{width:92px;font-size:14px;font-weight:600;flex-shrink:0}
+.dim-bar{flex:1;height:12px;background:#eef1f5;border-radius:6px;overflow:hidden}
+.dim-fill{height:100%;border-radius:6px}
+.dim-score{width:52px;text-align:right;font-weight:700;font-size:14px}
+.dim-note{font-size:12px;color:#6b7280;margin:-8px 0 14px 104px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid #eef1f5}
+th{background:#f8fafc;color:#475569;font-weight:600}
+tr:hover td{background:#f8fafc}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600;color:#fff}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;background:#eef2ff;color:#3730a3;margin:2px}
+.sug{border:1px solid #eef1f5;border-radius:12px;padding:16px;margin-bottom:12px;display:flex;gap:14px}
+.sug-prio{flex-shrink:0;width:52px;height:52px;border-radius:12px;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:16px}
+.sug-prio span{font-size:9px;font-weight:500;opacity:.9}
+.sug-body{flex:1}
+.sug-body .act{font-weight:600;font-size:14.5px;margin-bottom:4px}
+.sug-body .meta{font-size:12.5px;color:#6b7280}
+.sug-body .meta b{color:#374151}
+.foot{font-size:12px;color:#9ca3af;text-align:center;margin-top:8px}
+.legend{font-size:12px;color:#6b7280;margin-top:8px}
+.svg-wrap{display:flex;justify-content:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <h1>仓桥智能 · GEO 诊断报告</h1>
+    <div class="sub">生成式引擎优化（Generative Engine Optimization）诊断 · 生成日期 —</div>
+    <div class="score-row">
+      <div class="big-score">18.0</div>
+      <div><div style="opacity:.75;font-size:13px">综合得分（满分 100）</div>
+      <div style="margin-top:8px"><span class="grade-badge" style="background:#7f1d1d">等级 D · 缺失，几乎不可见</span></div></div>
+    </div>
+    <div class="summary">综合 GEO 得分 <b>18.0</b>（缺失，几乎不可见）。最强维度为「情感倾向」（50.0），最弱维度为「可见度」（0.0）。薄弱维度：可见度、推荐度、引用源质量、信息覆盖度、情感倾向、内容基础。</div>
+  </div>
+
+  <div class="card">
+    <h2>六维得分雷达</h2>
+    <div class="svg-wrap"><svg viewBox="0 0 380 330" width="100%" style="max-width:420px" xmlns="http://www.w3.org/2000/svg"><polygon points="190.0,170.0 190.0,170.0 190.0,170.0 190.0,170.0 190.0,170.0 190.0,170.0" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="190.0,140.0 216.0,155.0 216.0,185.0 190.0,200.0 164.0,185.0 164.0,155.0" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="190.0,110.0 242.0,140.0 242.0,200.0 190.0,230.0 138.0,200.0 138.0,140.0" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="190.0,80.0 267.9,125.0 267.9,215.0 190.0,260.0 112.1,215.0 112.1,125.0" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="190.0,50.0 293.9,110.0 293.9,230.0 190.0,290.0 86.1,230.0 86.1,110.0" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="190" y1="170" x2="190.0" y2="50.0" stroke="#e2e8f0" stroke-width="1"/><line x1="190" y1="170" x2="293.9" y2="110.0" stroke="#e2e8f0" stroke-width="1"/><line x1="190" y1="170" x2="293.9" y2="230.0" stroke="#e2e8f0" stroke-width="1"/><line x1="190" y1="170" x2="190.0" y2="290.0" stroke="#e2e8f0" stroke-width="1"/><line x1="190" y1="170" x2="86.1" y2="230.0" stroke="#e2e8f0" stroke-width="1"/><line x1="190" y1="170" x2="86.1" y2="110.0" stroke="#e2e8f0" stroke-width="1"/><circle cx="190.0" cy="140.0" r="1.8" fill="#cbd5e1"/><circle cx="216.0" cy="155.0" r="1.8" fill="#cbd5e1"/><circle cx="216.0" cy="185.0" r="1.8" fill="#cbd5e1"/><circle cx="190.0" cy="200.0" r="1.8" fill="#cbd5e1"/><circle cx="164.0" cy="185.0" r="1.8" fill="#cbd5e1"/><circle cx="164.0" cy="155.0" r="1.8" fill="#cbd5e1"/><circle cx="190.0" cy="110.0" r="1.8" fill="#cbd5e1"/><circle cx="242.0" cy="140.0" r="1.8" fill="#cbd5e1"/><circle cx="242.0" cy="200.0" r="1.8" fill="#cbd5e1"/><circle cx="190.0" cy="230.0" r="1.8" fill="#cbd5e1"/><circle cx="138.0" cy="200.0" r="1.8" fill="#cbd5e1"/><circle cx="138.0" cy="140.0" r="1.8" fill="#cbd5e1"/><circle cx="190.0" cy="80.0" r="1.8" fill="#cbd5e1"/><circle cx="267.9" cy="125.0" r="1.8" fill="#cbd5e1"/><circle cx="267.9" cy="215.0" r="1.8" fill="#cbd5e1"/><circle cx="190.0" cy="260.0" r="1.8" fill="#cbd5e1"/><circle cx="112.1" cy="215.0" r="1.8" fill="#cbd5e1"/><circle cx="112.1" cy="125.0" r="1.8" fill="#cbd5e1"/><circle cx="190.0" cy="50.0" r="1.8" fill="#cbd5e1"/><circle cx="293.9" cy="110.0" r="1.8" fill="#cbd5e1"/><circle cx="293.9" cy="230.0" r="1.8" fill="#cbd5e1"/><circle cx="190.0" cy="290.0" r="1.8" fill="#cbd5e1"/><circle cx="86.1" cy="230.0" r="1.8" fill="#cbd5e1"/><circle cx="86.1" cy="110.0" r="1.8" fill="#cbd5e1"/><polygon points="190.0,170.0 231.6,146.0 210.8,182.0 190.0,170.0 138.0,200.0 169.2,158.0" fill="rgba(29,78,216,.25)" stroke="#1d4ed8" stroke-width="2.5"/><circle cx="190.0" cy="170.0" r="4" fill="#1d4ed8"/><circle cx="231.6" cy="146.0" r="4" fill="#1d4ed8"/><circle cx="210.8" cy="182.0" r="4" fill="#1d4ed8"/><circle cx="190.0" cy="170.0" r="4" fill="#1d4ed8"/><circle cx="138.0" cy="200.0" r="4" fill="#1d4ed8"/><circle cx="169.2" cy="158.0" r="4" fill="#1d4ed8"/><text x="190.0" y="40.4" dy="-6" text-anchor="middle" font-size="12.5" fill="#374151" font-weight="600">可见度 0</text><text x="302.2" y="105.2" dy="4" text-anchor="start" font-size="12.5" fill="#374151" font-weight="600">推荐度 40</text><text x="302.2" y="234.8" dy="4" text-anchor="start" font-size="12.5" fill="#374151" font-weight="600">引用源质量 20</text><text x="190.0" y="299.6" dy="4" text-anchor="end" font-size="12.5" fill="#374151" font-weight="600">信息覆盖度 0</text><text x="77.8" y="234.8" dy="4" text-anchor="end" font-size="12.5" fill="#374151" font-weight="600">情感倾向 50</text><text x="77.8" y="105.2" dy="4" text-anchor="end" font-size="12.5" fill="#374151" font-weight="600">内容基础 20</text></svg></div>
+    <div class="legend">维度得分 0-100，越靠近外圈表现越好。综合得分 = 各维度得分 × 权重 之和。</div>
+  </div>
+
+  <div class="card">
+    <h2>维度得分明细</h2>
+    <div class="dim"><div class="dim-name">可见度<div style="font-size:10.5px;color:#9ca3af;font-weight:400">权重 30%</div></div><div class="dim-bar"><div class="dim-fill" style="width:0%;background:#c5221f"></div></div><div class="dim-score" style="color:#c5221f">0.0</div></div><div class="dim-note">⚠ 薄弱，需改进</div><div class="dim"><div class="dim-name">推荐度<div style="font-size:10.5px;color:#9ca3af;font-weight:400">权重 20%</div></div><div class="dim-bar"><div class="dim-fill" style="width:40%;background:#e8710a"></div></div><div class="dim-score" style="color:#e8710a">40.0</div></div><div class="dim-note">⚠ 薄弱，需改进</div><div class="dim"><div class="dim-name">引用源质量<div style="font-size:10.5px;color:#9ca3af;font-weight:400">权重 15%</div></div><div class="dim-bar"><div class="dim-fill" style="width:20%;background:#c5221f"></div></div><div class="dim-score" style="color:#c5221f">20.0</div></div><div class="dim-note">⚠ 薄弱，需改进</div><div class="dim"><div class="dim-name">信息覆盖度<div style="font-size:10.5px;color:#9ca3af;font-weight:400">权重 15%</div></div><div class="dim-bar"><div class="dim-fill" style="width:0%;background:#c5221f"></div></div><div class="dim-score" style="color:#c5221f">0.0</div></div><div class="dim-note">⚠ 薄弱，需改进</div><div class="dim"><div class="dim-name">情感倾向<div style="font-size:10.5px;color:#9ca3af;font-weight:400">权重 10%</div></div><div class="dim-bar"><div class="dim-fill" style="width:50%;background:#e8710a"></div></div><div class="dim-score" style="color:#e8710a">50.0</div></div><div class="dim-note">⚠ 薄弱，需改进</div><div class="dim"><div class="dim-name">内容基础<div style="font-size:10.5px;color:#9ca3af;font-weight:400">权重 10%</div></div><div class="dim-bar"><div class="dim-fill" style="width:20%;background:#c5221f"></div></div><div class="dim-score" style="color:#c5221f">20.0</div></div><div class="dim-note">⚠ 薄弱，需改进</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h2>引擎对比矩阵</h2>
+      <table>
+        <tr><th>引擎</th><th>查询数</th><th>可见度</th><th>推荐度</th><th>情感</th></tr>
+        <tr><td><b>WebSearch模拟</b></td><td>4</td><td style="color:#c5221f;font-weight:700">0.0</td><td>40.0</td><td>50.0</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h2>内容基础评估</h2>
+      <div>权威第三方内容数量：<b>0</b> 篇</div><div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eef1f5;font-size:13.5px"><span>百科条目且内容正面</span><span style="font-weight:600;color:#c5221f">✗ 否</span></div><div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eef1f5;font-size:13.5px"><span>官网可检索且含 FAQ/结构化标记</span><span style="font-weight:600;color:#c5221f">✗ 否</span></div><div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eef1f5;font-size:13.5px"><span>权威第三方内容 ≥5 篇</span><span style="font-weight:600;color:#c5221f">✗ 否</span></div><div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eef1f5;font-size:13.5px"><span>实体被知识图谱识别</span><span style="font-weight:600;color:#c5221f">✗ 否</span></div><div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eef1f5;font-size:13.5px"><span>近 3-6 个月内容生态活跃</span><span style="font-weight:600;color:#0b8043">✓ 是</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>逐条查询明细</h2>
+    <table>
+      <tr><th>引擎</th><th>测试查询</th><th>品牌位置</th><th>推荐状态</th><th>引用源</th><th>情感</th><th>覆盖</th><th>事实错误</th></tr>
+      <tr><td>WebSearch模拟</td><td style="max-width:220px">杭州 GEO培训 企业获客 哪家好</td><td><span class="pill">未出现</span></td><td><span class="pill">客观描述</span></td><td>低质聚合站、third_party</td><td><span class="pill">中立</span></td><td>0/6</td><td>0</td></tr><tr><td>WebSearch模拟</td><td style="max-width:220px">GEO培训课程怎么选 避坑</td><td><span class="pill">未出现</span></td><td><span class="pill">客观描述</span></td><td>third_party、media</td><td><span class="pill">中立</span></td><td>0/6</td><td>0</td></tr><tr><td>WebSearch模拟</td><td style="max-width:220px">仓桥智能 杭州 AI</td><td><span class="pill">未出现</span></td><td><span class="pill">客观描述</span></td><td>—</td><td><span class="pill">中立</span></td><td>0/6</td><td>0</td></tr><tr><td>WebSearch模拟</td><td style="max-width:220px">"杭州仓桥智能科技"（精确品牌词）</td><td><span class="pill">未出现</span></td><td><span class="pill">客观描述</span></td><td>—</td><td><span class="pill">中立</span></td><td>0/6</td><td>0</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>改进建议（按优先级）</h2>
+    <div class="sug"><div class="sug-prio" style="background:#b3261e">P0<span>1-2 周内</span></div><div class="sug-body"><div class="act">建设可检索官网：三大业务方向+产品矩阵+FAQ 全文字化（不锁图片），部署基础 SEO 配置；同步把 OpenGEO 开源仓库、公司介绍 PDF 的内容发布为可索引网页</div><div class="meta"><b>目标维度：</b>内容基础 · <b>预期效果：</b>品牌精确词当前在搜索引擎零结果——官网是让 AI『找得到』的第一基础设施</div><div class="meta"><b>衡量方式：</b>官网上线 1 个月后复查品牌直达查询出现 official 引用源</div></div></div><div class="sug"><div class="sug-prio" style="background:#b3261e">P0<span>1-2 周内</span></div><div class="sug-body"><div class="act">创建百度百科词条「杭州仓桥智能科技有限公司」，与近似名（江湾智能/慧仓智能/常桥科技）消歧；全网统一使用全称+『仓桥智能』绑定</div><div class="meta"><b>目标维度：</b>可见度 · <b>预期效果：</b>当前搜品牌词出现的全是同名近似公司，存在被混淆风险</div><div class="meta"><b>衡量方式：</b>百科收录后品牌直达查询正确指向</div></div></div><div class="sug"><div class="sug-prio" style="background:#b3261e">P0<span>1-2 周内</span></div><div class="sug-body"><div class="act">以《GEO 培训怎么选：避坑指南》为切入发布系列权威内容——市场已在讨论『无套路不割韭菜』『6 类交付物验收』，我们的口径宪章与诊断-改进-复测模式恰好命中全部避坑标准</div><div class="meta"><b>目标维度：</b>推荐度 · <b>预期效果：</b>品类查询被竞品软文盘点占据，但『反割韭菜』角度存在权威内容空白</div><div class="meta"><b>衡量方式：</b>品类推荐查询中从 absent 提升至 mention</div></div></div><div class="sug"><div class="sug-prio" style="background:#e8710a">P1<span>1-2 个月内</span></div><div class="sug-body"><div class="act">权威第三方内容≥5 篇：政务交付（仓前街道/龙岗统计慧答）新闻稿、A³OPC 社区活动报道、知乎专业回答</div><div class="meta"><b>目标维度：</b>引用源质量 · <b>预期效果：</b>当前第三方权威内容为 0</div><div class="meta"><b>衡量方式：</b>third_party_count ≥5</div></div></div><div class="sug"><div class="sug-prio" style="background:#e8710a">P1<span>1-2 个月内</span></div><div class="sug-body"><div class="act">公众号+视频号地基：GEO 课程与案例内容周更，同一内容≥3 平台互证</div><div class="meta"><b>目标维度：</b>信息覆盖度 · <b>预期效果：</b>AI 可引用信息维度当前 0/6</div><div class="meta"><b>衡量方式：</b>coverage 提升至 3/6</div></div></div><div class="sug"><div class="sug-prio" style="background:#0b57d0">P2<span>持续进行</span></div><div class="sug-body"><div class="act">每周一 S7 复测 20 问并公开分数趋势（OpenGEO 仓库直播本案例）</div><div class="meta"><b>目标维度：</b>全部 · <b>预期效果：</b>复测闭环本身成为最强获客叙事</div><div class="meta"><b>衡量方式：</b>28 天后综合分 ≥30</div></div></div>
+  </div>
+
+  <div class="foot">
+    数据来源：未注明（请人工核对）。<br>
+    本报告由 brand-geo-audit 技能生成，仅供参考，不构成商业决策依据。
+  </div>
+</div>
+</body>
+</html>
