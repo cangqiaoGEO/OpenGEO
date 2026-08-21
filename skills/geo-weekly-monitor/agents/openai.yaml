@@ -1,0 +1,4 @@
+interface:
+  display_name: "GEO 周测监测"
+  short_description: "复测固定二十问并生成可审计的 GEO 周度趋势与验证记录"
+  default_prompt: "使用 $geo-weekly-monitor 对品牌库的固定 20 问执行本周复测并生成趋势报告。"
