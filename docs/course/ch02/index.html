@@ -787,6 +787,13 @@
 <p><strong>一句话总结：不用猜自己行不行——用诊断工具打个分。分数低不是产品差，是 AI 看不见、看不懂、不敢信。</strong></p>
 </blockquote>
 <h2 id="21">2.1 六维评分模型<a class="headerlink" href="#21" title="Permanent link">&para;</a></h2>
+<div class="admonition quote">
+<p class="admonition-title">小剧场 · 17 分</p>
+<p>小林用诊断工具给自家厂跑了一遍，综合分 17，D 级。
+老周盯着雷达图：「可见度 0？我们官网不是有吗？」
+小林：「官网是一张图片，AI 读不到字。百科没有，公众号去年就停更了，AI 引用的三篇资料里，两篇是同行的。」
+老周沉默了一会儿：「那先补哪个？」——这就是本篇要回答的问题。</p>
+</div>
 <p>用固定问题集在多个 AI 引擎逐条实测，输出六维得分（工具已开源：<a href="https://github.com/cangqiaoGEO/OpenGEO/tree/main/skills/S1-diagnosis">skills/S1-diagnosis</a>）：</p>
 <p><img alt="" src="../assets/figures/f07-radar.svg" />
 <em>图解｜六维雷达：六项得分 × 权重加总 = 综合分；低分先看最弱的那一维</em></p>
@@ -863,6 +870,17 @@
 <p><strong>对比验证 5 问</strong>：[品牌]和[竞品]哪个好 / [品牌]值得选吗 / [品牌]优势 / [品牌]是正规公司吗 / [品牌]售后怎么样</p>
 <p>每周三固定时间，在豆包/元宝/DeepSeek 各问一遍，每问记录四项：<strong>是否提及｜是否推荐｜引用了谁｜说得对不对</strong>。四周下来，趋势自现。</p>
 </div>
+<details class="question">
+<summary>章末自测（2 题）</summary>
+<ol>
+<li>六个维度里权重最高的是哪个？为什么它排第一？</li>
+<li>一家企业诊断 36 分，公众号内容很好，但没官网、没百科——它的 P0 是什么？</li>
+</ol>
+<details class="success">
+<summary>参考答案</summary>
+<p>1 可见度（30%）——先有出现，才谈推荐、引用、准确；没被看见，后面全是零。2 官网 + 百科词条（品牌消歧）——这是分数生效门槛，地基不补，内容再好复测也不动。</p>
+</details>
+</details>
 <h2 id="_2">✅ 行动检查<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>[ ] 领取/生成了自己品牌的基线诊断（哪怕先用 20 问手测）；</li>
