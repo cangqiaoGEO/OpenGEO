@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cangqiaoedu.local/schemas/brand-entity-profile.schema.json",
+  "title": "Brand GEO Brand Entity Profile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "brand_profile_id", "run_id", "status", "canonical_name", "entity_type", "match_terms", "locations", "official_channels", "relations", "unknowns"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "brand_profile_id": {"type": "string", "pattern": "^brand-profile-[a-z0-9][a-z0-9-]*$"},
+    "run_id": {"type": "string", "pattern": "^run-[a-z0-9][a-z0-9-]*$"},
+    "status": {"enum": ["draft", "ready"]},
+    "canonical_name": {"type": "string", "minLength": 1},
+    "entity_type": {"enum": ["brand", "company", "store", "product_line", "service_brand", "mixed"]},
+    "match_terms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["term_id", "term", "term_type", "verification_status", "evidence_ids"],
+        "properties": {
+          "term_id": {"type": "string", "pattern": "^term-[a-z0-9][a-z0-9-]*$"},
+          "term": {"type": "string", "minLength": 1},
+          "term_type": {"enum": ["canonical", "brand_alias", "legal_name", "store_name", "former_name", "transliteration", "colloquial"]},
+          "verification_status": {"enum": ["verified", "partially_verified", "unverified"]},
+          "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+        }
+      }
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["location_id", "name", "market", "address", "service_area", "evidence_ids"],
+        "properties": {
+          "location_id": {"type": "string", "pattern": "^location-[a-z0-9][a-z0-9-]*$"},
+          "name": {"type": "string", "minLength": 1},
+          "market": {"type": "string", "minLength": 1},
+          "address": {"type": ["string", "null"]},
+          "service_area": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+          "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+        }
+      }
+    },
+    "official_channels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["channel_id", "channel_type", "url", "verification_status", "evidence_ids"],
+        "properties": {
+          "channel_id": {"type": "string", "pattern": "^channel-[a-z0-9][a-z0-9-]*$"},
+          "channel_type": {"enum": ["website", "social", "marketplace", "local_listing", "app_profile", "other"]},
+          "url": {"type": "string", "pattern": "^https?://"},
+          "verification_status": {"enum": ["verified", "partially_verified", "unverified"]},
+          "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+        }
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["relation_id", "subject", "relation_type", "object", "verification_status", "evidence_ids"],
+        "properties": {
+          "relation_id": {"type": "string", "pattern": "^relation-[a-z0-9][a-z0-9-]*$"},
+          "subject": {"type": "string", "minLength": 1},
+          "relation_type": {"enum": ["operated_by", "owned_by", "authorized_by", "located_at", "renamed_from", "associated_with"]},
+          "object": {"type": "string", "minLength": 1},
+          "verification_status": {"enum": ["verified", "partially_verified", "unverified"]},
+          "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+        }
+      }
+    },
+    "unknowns": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+  },
+  "$defs": {
+    "evidenceIds": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+  }
+}

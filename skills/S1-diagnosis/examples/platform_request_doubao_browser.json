@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "request_id": "request-doubao-browser-category-001",
+  "protocol_id": "protocol-example-education",
+  "query_id": "q-category",
+  "consumer_product": "doubao",
+  "provider": "consumer_web",
+  "channel": "official_app_browser",
+  "query": "职业院校建设嵌入式实训室时，国内有哪些值得考虑的解决方案？",
+  "requested_at": "2026-08-20T18:00:00+08:00",
+  "configuration": {
+    "model_requested": null,
+    "search_mode": "native",
+    "search_required": false,
+    "thinking_mode": "platform_default",
+    "temperature": null,
+    "max_output_tokens": null,
+    "region": "CN",
+    "language": "zh-CN"
+  }
+}

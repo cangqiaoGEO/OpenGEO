@@ -1,0 +1,33 @@
+{
+  "name": "geo-diagnostic-expert",
+  "version": "0.3.0",
+  "description": "Evidence-based GEO diagnostics across major Chinese consumer AI platforms",
+  "author": {"name": "cangqiaoedu-skills"},
+  "agents": ["./agents/geo-diagnostic-expert.md"],
+  "skills": ["./skills/brand-geo-audit", "./skills/geo-browser-runtime"],
+  "expertType": "agent",
+  "agentName": "geo-diagnostic-expert",
+  "displayName": {"en": "GEO Diagnostic Expert", "zh": "GEO诊断专家"},
+  "profession": {"en": "Brand GEO Diagnostic Specialist", "zh": "品牌 GEO 诊断专家"},
+  "displayDescription": {
+    "en": "Measures brand visibility, recommendation, citation, coverage, and evidence quality across major Chinese consumer AI platforms",
+    "zh": "实测品牌在豆包、千问、DeepSeek 与腾讯元宝中的可见、推荐和引用表现，生成可追溯诊断报告"
+  },
+  "avatar": "avatars/expert.png",
+  "categoryId": "05-MarketingGrowth",
+  "defaultInitPrompt": {
+    "zh": "请为我的品牌执行一次完整 GEO 诊断，并生成可追溯的 HTML 报告",
+    "en": "Run a complete GEO diagnostic for my brand and generate a traceable HTML report"
+  },
+  "plugin": "geo-diagnostic-expert",
+  "tags": [
+    {"en": "GEO Diagnostics", "zh": "GEO 诊断"},
+    {"en": "AI Visibility", "zh": "AI 可见度"},
+    {"en": "Evidence Audit", "zh": "证据审计"}
+  ],
+  "quickPrompts": [
+    {"zh": "请为我的品牌执行一次完整 GEO 诊断，并生成可追溯的 HTML 报告", "en": "Run a complete GEO diagnostic for my brand and generate a traceable HTML report"},
+    {"zh": "请实测我的品牌在豆包、千问、DeepSeek 和腾讯元宝中的表现", "en": "Test my brand across Doubao, Qwen, DeepSeek, and Tencent Yuanbao"},
+    {"zh": "请根据我提供的 AI 回答和截图生成 GEO 诊断报告", "en": "Generate a GEO diagnostic report from the AI answers and screenshots I provide"}
+  ]
+}

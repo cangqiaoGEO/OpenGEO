@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cangqiaoedu.local/schemas/pilot-study.schema.json",
+  "title": "Brand GEO Controlled Pilot Study v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "pilot_id",
+    "status",
+    "purpose",
+    "created_at",
+    "as_of",
+    "required_coverage",
+    "observation_policy",
+    "review_policy",
+    "handoff_policy",
+    "cases"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "pilot_id": {"type": "string", "pattern": "^pilot-[a-z0-9][a-z0-9-]*$"},
+    "status": {"enum": ["draft", "frozen", "collecting", "completed", "blocked"]},
+    "purpose": {"const": "workflow_validation"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "as_of": {"type": "string", "format": "date"},
+    "required_coverage": {
+      "type": "array",
+      "minItems": 5,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "high_consideration_b2b",
+          "consumer_brand",
+          "regional_service",
+          "local_sme_or_micro",
+          "entity_complexity"
+        ]
+      }
+    },
+    "observation_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary_channel",
+        "consumer_product",
+        "target_repetitions",
+        "time_window_hours",
+        "market_context",
+        "location_state",
+        "search_required",
+        "preserve_query_level_results",
+        "preserve_channel_separation"
+      ],
+      "properties": {
+        "primary_channel": {"const": "official_app_browser"},
+        "consumer_product": {"enum": ["doubao", "qwen", "deepseek", "yuanbao"]},
+        "target_repetitions": {"type": "integer", "minimum": 2},
+        "time_window_hours": {"type": "integer", "minimum": 1},
+        "market_context": {"type": "string", "minLength": 1},
+        "location_state": {"enum": ["explicit_in_query", "account_or_device_context", "unknown"]},
+        "search_required": {"const": true},
+        "preserve_query_level_results": {"const": true},
+        "preserve_channel_separation": {"const": true}
+      }
+    },
+    "review_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entity_resolution_owner", "industry_factor_owner", "annotation_owner", "review_method"],
+      "properties": {
+        "entity_resolution_owner": {"type": "string", "minLength": 1},
+        "industry_factor_owner": {"type": "string", "minLength": 1},
+        "annotation_owner": {"type": "string", "minLength": 1},
+        "review_method": {"enum": ["single_operator_review", "independent_second_review"]}
+      }
+    },
+    "handoff_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["delivery_mode", "artifact_root", "workbuddy_binding_status", "planning_handoff_required"],
+      "properties": {
+        "delivery_mode": {"enum": ["controlled_files", "workbuddy_tool", "mixed"]},
+        "artifact_root": {"type": "string", "minLength": 1},
+        "workbuddy_binding_status": {"enum": ["unavailable", "planned", "verified"]},
+        "planning_handoff_required": {"const": true}
+      }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {"$ref": "#/$defs/case"}
+    }
+  },
+  "$defs": {
+    "case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_id",
+        "status",
+        "coverage",
+        "data_access",
+        "research_package_path",
+        "diagnostic_package_path",
+        "critical_query_ids",
+        "app_request_paths",
+        "app_response_paths",
+        "review_status",
+        "handoff_path",
+        "limitations"
+      ],
+      "properties": {
+        "case_id": {"type": "string", "pattern": "^case-[a-z0-9][a-z0-9-]*$"},
+        "status": {"enum": ["planned", "ready", "collecting", "reviewed", "completed", "blocked"]},
+        "coverage": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "high_consideration_b2b",
+              "consumer_brand",
+              "regional_service",
+              "local_sme_or_micro",
+              "entity_complexity"
+            ]
+          }
+        },
+        "data_access": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["public_web", "user_provided", "official_app_browser", "official_api"]}
+        },
+        "research_package_path": {"type": "string", "minLength": 1},
+        "diagnostic_package_path": {"type": "string", "minLength": 1},
+        "critical_query_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "app_request_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "app_response_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "review_status": {"enum": ["pending", "completed", "blocked"]},
+        "handoff_path": {"type": ["string", "null"]},
+        "limitations": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

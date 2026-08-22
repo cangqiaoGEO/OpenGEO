@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cangqiaoedu.local/schemas/repeated-observation-experiment.schema.json",
+  "title": "Brand GEO Repeated Observation Experiment v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "experiment_id", "protocol_id", "query_id", "query_text", "purpose", "target_repetitions", "platforms"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "experiment_id": {"type": "string", "pattern": "^experiment-[a-z0-9][a-z0-9-]*$"},
+    "protocol_id": {"type": "string"},
+    "query_id": {"type": "string"},
+    "query_text": {"type": "string", "minLength": 1},
+    "purpose": {"const": "collection_stability"},
+    "target_repetitions": {"type": "integer", "minimum": 2},
+    "platforms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/platform"}
+    }
+  },
+  "$defs": {
+    "platform": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["consumer_product", "channel", "mode_policy", "runs"],
+      "properties": {
+        "consumer_product": {"enum": ["doubao", "qwen", "deepseek", "yuanbao"]},
+        "channel": {"enum": ["official_app_browser", "official_api"]},
+        "mode_policy": {"$ref": "#/$defs/modePolicy"},
+        "runs": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/run"}
+        }
+      }
+    },
+    "modePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode_label", "thinking_mode", "search_mode", "search_required"],
+      "properties": {
+        "mode_label": {"type": "string", "minLength": 1},
+        "thinking_mode": {"enum": ["disabled", "platform_default"]},
+        "search_mode": {"enum": ["native", "none"]},
+        "search_required": {"type": "boolean"}
+      }
+    },
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["run_id", "repetition_index", "request_path", "response_path", "annotation"],
+      "properties": {
+        "run_id": {"type": "string", "pattern": "^run-[a-z0-9][a-z0-9-]*$"},
+        "repetition_index": {"type": "integer", "minimum": 1},
+        "request_path": {"type": "string", "minLength": 1},
+        "response_path": {"type": "string", "minLength": 1},
+        "annotation": {"$ref": "#/$defs/annotation"}
+      }
+    },
+    "annotation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entities_mentioned", "entities_recommended", "first_entity", "recommendation_present", "selection_criteria", "caveats"],
+      "properties": {
+        "entities_mentioned": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "entities_recommended": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "first_entity": {"type": ["string", "null"]},
+        "recommendation_present": {"type": "boolean"},
+        "selection_criteria": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "caveats": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

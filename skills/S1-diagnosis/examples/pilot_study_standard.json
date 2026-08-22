@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "pilot_id": "pilot-example-r2",
+  "status": "frozen",
+  "purpose": "workflow_validation",
+  "created_at": "2026-08-21T16:00:00+08:00",
+  "as_of": "2026-08-21",
+  "required_coverage": [
+    "high_consideration_b2b",
+    "consumer_brand",
+    "regional_service",
+    "local_sme_or_micro",
+    "entity_complexity"
+  ],
+  "observation_policy": {
+    "primary_channel": "official_app_browser",
+    "consumer_product": "qwen",
+    "target_repetitions": 3,
+    "time_window_hours": 24,
+    "market_context": "中国大陆中文消费者产品",
+    "location_state": "explicit_in_query",
+    "search_required": true,
+    "preserve_query_level_results": true,
+    "preserve_channel_separation": true
+  },
+  "review_policy": {
+    "entity_resolution_owner": "pilot-operator",
+    "industry_factor_owner": "pilot-operator",
+    "annotation_owner": "pilot-operator",
+    "review_method": "single_operator_review"
+  },
+  "handoff_policy": {
+    "delivery_mode": "controlled_files",
+    "artifact_root": "work/r2-pilot",
+    "workbuddy_binding_status": "planned",
+    "planning_handoff_required": true
+  },
+  "cases": [
+    {
+      "case_id": "case-example-b2b",
+      "status": "ready",
+      "coverage": ["high_consideration_b2b", "entity_complexity"],
+      "data_access": ["public_web", "official_app_browser", "official_api"],
+      "research_package_path": "work/r2-pilot/example-b2b/research.json",
+      "diagnostic_package_path": "work/r2-pilot/example-b2b/diagnostic.json",
+      "critical_query_ids": ["q-category-recommendation"],
+      "app_request_paths": [],
+      "app_response_paths": [],
+      "review_status": "pending",
+      "handoff_path": null,
+      "limitations": []
+    },
+    {
+      "case_id": "case-example-consumer",
+      "status": "ready",
+      "coverage": ["consumer_brand"],
+      "data_access": ["public_web", "official_app_browser"],
+      "research_package_path": "work/r2-pilot/example-consumer/research.json",
+      "diagnostic_package_path": "work/r2-pilot/example-consumer/diagnostic.json",
+      "critical_query_ids": ["q-category-recommendation"],
+      "app_request_paths": [],
+      "app_response_paths": [],
+      "review_status": "pending",
+      "handoff_path": null,
+      "limitations": []
+    },
+    {
+      "case_id": "case-example-local",
+      "status": "ready",
+      "coverage": ["regional_service", "local_sme_or_micro"],
+      "data_access": ["public_web", "user_provided", "official_app_browser"],
+      "research_package_path": "work/r2-pilot/example-local/research.json",
+      "diagnostic_package_path": "work/r2-pilot/example-local/diagnostic.json",
+      "critical_query_ids": ["q-category-recommendation"],
+      "app_request_paths": [],
+      "app_response_paths": [],
+      "review_status": "pending",
+      "handoff_path": null,
+      "limitations": ["示例不包含真实客户数据"]
+    }
+  ]
+}

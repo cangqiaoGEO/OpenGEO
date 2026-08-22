@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "request_id": "request-yuanbao-category-001",
+  "protocol_id": "protocol-example-education",
+  "query_id": "q-category",
+  "consumer_product": "yuanbao",
+  "provider": "tencent_tokenhub",
+  "channel": "official_api",
+  "query": "职业院校建设嵌入式实训室时，国内有哪些值得考虑的解决方案？",
+  "requested_at": "2026-08-21T18:00:00+08:00",
+  "configuration": {
+    "model_requested": "hy3",
+    "search_mode": "native",
+    "search_required": true,
+    "thinking_mode": "disabled",
+    "temperature": 0.2,
+    "max_output_tokens": 2048,
+    "region": "cn-guangzhou",
+    "language": "zh-CN"
+  }
+}

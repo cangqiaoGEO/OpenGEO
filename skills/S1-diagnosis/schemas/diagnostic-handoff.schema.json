@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cangqiaoedu.local/schemas/diagnostic-handoff.schema.json",
+  "title": "Brand GEO Diagnostic Handoff v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "handoff_id",
+    "run_id",
+    "report_mode",
+    "generated_at",
+    "brand",
+    "scope",
+    "artifact_refs",
+    "entity_observations",
+    "findings",
+    "evidence_gaps",
+    "planning_questions",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "handoff_id": {"type": "string", "pattern": "^handoff-[a-z0-9][a-z0-9-]*$"},
+    "run_id": {"type": "string", "pattern": "^run-[a-z0-9][a-z0-9-]*$"},
+    "report_mode": {"const": "diagnostic"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "brand": {"type": "string", "minLength": 1},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["market", "critical_query_ids", "channels"],
+      "properties": {
+        "market": {"type": "string", "minLength": 1},
+        "critical_query_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "channels": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["official_app_browser", "official_api", "public_web", "user_provided"]}
+        }
+      }
+    },
+    "artifact_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/artifactRef"}
+    },
+    "entity_observations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/entityObservation"}
+    },
+    "findings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/finding"}
+    },
+    "evidence_gaps": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/gap"}
+    },
+    "planning_questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/planningQuestion"}
+    },
+    "limitations": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    }
+  },
+  "$defs": {
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_id", "artifact_type", "path"],
+      "properties": {
+        "artifact_id": {"type": "string", "pattern": "^artifact-[a-z0-9][a-z0-9-]*$"},
+        "artifact_type": {
+          "enum": [
+            "research_package",
+            "diagnostic_package",
+            "raw_request",
+            "raw_response",
+            "screenshot",
+            "stability_result",
+            "user_material"
+          ]
+        },
+        "path": {"type": "string", "minLength": 1}
+      }
+    },
+    "entityObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entity_observation_id", "query_id", "artifact_ref_ids", "match_status", "matched_terms", "rationale"],
+      "properties": {
+        "entity_observation_id": {"type": "string", "pattern": "^entity-obs-[a-z0-9][a-z0-9-]*$"},
+        "query_id": {"type": "string", "minLength": 1},
+        "artifact_ref_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^artifact-[a-z0-9][a-z0-9-]*$"}
+        },
+        "match_status": {
+          "enum": [
+            "exact_canonical",
+            "verified_alias",
+            "verified_related_entity",
+            "other_entity_only",
+            "ambiguous",
+            "absent",
+            "unreviewed"
+          ]
+        },
+        "matched_terms": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["finding_id", "statement", "epistemic_status", "confidence", "artifact_ref_ids", "counterevidence_ref_ids", "business_impact"],
+      "properties": {
+        "finding_id": {"type": "string", "pattern": "^finding-[a-z0-9][a-z0-9-]*$"},
+        "statement": {"type": "string", "minLength": 1},
+        "epistemic_status": {"enum": ["observed", "inferred", "unknown", "contradicted"]},
+        "confidence": {"enum": ["high", "medium", "low", "unknown"]},
+        "artifact_ref_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^artifact-[a-z0-9][a-z0-9-]*$"}
+        },
+        "counterevidence_ref_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^artifact-[a-z0-9][a-z0-9-]*$"}
+        },
+        "business_impact": {"type": "string", "minLength": 1}
+      }
+    },
+    "gap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gap_id", "statement", "impact", "required_evidence"],
+      "properties": {
+        "gap_id": {"type": "string", "pattern": "^gap-[a-z0-9][a-z0-9-]*$"},
+        "statement": {"type": "string", "minLength": 1},
+        "impact": {"type": "string", "minLength": 1},
+        "required_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "planningQuestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["planning_question_id", "question", "related_finding_ids", "validation_metric"],
+      "properties": {
+        "planning_question_id": {"type": "string", "pattern": "^planning-q-[a-z0-9][a-z0-9-]*$"},
+        "question": {"type": "string", "minLength": 1},
+        "related_finding_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^finding-[a-z0-9][a-z0-9-]*$"}
+        },
+        "validation_metric": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

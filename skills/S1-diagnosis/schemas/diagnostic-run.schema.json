@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cangqiaoedu.local/schemas/diagnostic-run.schema.json",
+  "title": "Brand GEO Diagnostic Run v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "status", "report_mode", "created_at", "as_of", "object_refs", "stage_status", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "run_id": {"type": "string", "pattern": "^run-[a-z0-9][a-z0-9-]*$"},
+    "status": {"enum": ["planning", "ready", "collecting", "analyzing", "completed", "blocked"]},
+    "report_mode": {"enum": ["exploratory", "diagnostic", "experimental_score"]},
+    "created_at": {"type": "string", "format": "date-time"},
+    "as_of": {"type": "string", "format": "date"},
+    "object_refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scope_id", "context_id", "protocol_id", "brand_profile_id", "industry_profile_id", "measurement_plan_id", "content_protocol_id"],
+      "properties": {
+        "scope_id": {"type": "string"},
+        "context_id": {"type": "string"},
+        "protocol_id": {"type": "string"},
+        "brand_profile_id": {"type": "string"},
+        "industry_profile_id": {"type": "string"},
+        "measurement_plan_id": {"type": "string"},
+        "content_protocol_id": {"type": "string"}
+      }
+    },
+    "stage_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["research", "entity_resolution", "industry_adaptation", "query_design", "content_foundation", "collection", "annotation", "audit", "reporting"],
+      "properties": {
+        "research": {"$ref": "#/$defs/stageState"},
+        "entity_resolution": {"$ref": "#/$defs/stageState"},
+        "industry_adaptation": {"$ref": "#/$defs/stageState"},
+        "query_design": {"$ref": "#/$defs/stageState"},
+        "content_foundation": {"$ref": "#/$defs/stageState"},
+        "collection": {"$ref": "#/$defs/stageState"},
+        "annotation": {"$ref": "#/$defs/stageState"},
+        "audit": {"$ref": "#/$defs/stageState"},
+        "reporting": {"$ref": "#/$defs/stageState"}
+      }
+    },
+    "limitations": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+  },
+  "$defs": {
+    "stageState": {"enum": ["pending", "in_progress", "completed", "blocked", "not_applicable"]}
+  }
+}

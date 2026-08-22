@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cangqiaoedu.local/schemas/observation-evidence.schema.json",
+  "title": "Brand GEO Observation Evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "evidence_package_id", "scope_id", "context_id", "protocol_id", "brand", "foundation", "observations"],
+  "$defs": {
+    "evidenceIds": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^src-[a-z0-9][a-z0-9-]*$"},
+      "uniqueItems": true
+    },
+    "foundationBoolean": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "evidence_ids"],
+      "properties": {
+        "value": {"type": ["boolean", "null"]},
+        "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+      }
+    }
+  },
+  "properties": {
+    "schema_version": {"const": "2.0.0"},
+    "evidence_package_id": {"type": "string", "pattern": "^evidence-[a-z0-9][a-z0-9-]*$"},
+    "scope_id": {"type": "string", "pattern": "^scope-[a-z0-9][a-z0-9-]*$"},
+    "context_id": {"type": "string", "pattern": "^context-[a-z0-9][a-z0-9-]*$"},
+    "protocol_id": {"type": "string", "pattern": "^protocol-[a-z0-9][a-z0-9-]*$"},
+    "brand": {"type": "string", "minLength": 1},
+    "foundation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["wiki", "official_site_structured", "third_party_count", "knowledge_graph", "content_active"],
+      "properties": {
+        "wiki": {"$ref": "#/$defs/foundationBoolean"},
+        "official_site_structured": {"$ref": "#/$defs/foundationBoolean"},
+        "third_party_count": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "evidence_ids"],
+          "properties": {
+            "value": {"type": ["integer", "null"], "minimum": 0},
+            "evidence_ids": {"$ref": "#/$defs/evidenceIds"}
+          }
+        },
+        "knowledge_graph": {"$ref": "#/$defs/foundationBoolean"},
+        "content_active": {"$ref": "#/$defs/foundationBoolean"}
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["observation_id", "query_id", "source_type", "status", "engine", "observed_at", "raw_response", "position", "recommendation", "citations", "sentiment", "coverage", "fact_errors"],
+        "properties": {
+          "observation_id": {"type": "string", "pattern": "^obs-[a-z0-9][a-z0-9-]*$"},
+          "query_id": {"type": "string", "pattern": "^q-[a-z0-9][a-z0-9-]*$"},
+          "source_type": {"enum": ["direct_engine_observation", "user_provided_observation"]},
+          "status": {"enum": ["observed", "unobserved"]},
+          "engine": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "model", "web_enabled"],
+            "properties": {
+              "name": {"type": "string", "minLength": 1},
+              "model": {"type": ["string", "null"]},
+              "web_enabled": {"type": ["boolean", "null"]}
+            }
+          },
+          "observed_at": {"type": ["string", "null"], "format": "date-time"},
+          "raw_response": {"type": ["string", "null"]},
+          "position": {"enum": ["top1", "top1_tied", "top3", "top5", "mention", "absent", null]},
+          "recommendation": {"enum": ["explicit", "tied", "neutral", "negative", null]},
+          "citations": {
+            "type": ["array", "null"],
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["url", "domain", "source_type", "brand_owned", "verification_status"],
+              "properties": {
+                "url": {"type": "string", "pattern": "^https?://"},
+                "domain": {"type": "string", "minLength": 1},
+                "source_type": {"enum": ["official", "wiki", "authoritative", "review", "social", "low_quality"]},
+                "brand_owned": {"type": "boolean"},
+                "verification_status": {"enum": ["verified", "partially_verified", "unverified"]}
+              }
+            }
+          },
+          "sentiment": {"enum": ["positive", "neutral", "negative", null]},
+          "coverage": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "required": ["intro", "selling_points", "products", "pricing", "reputation", "news"],
+            "properties": {
+              "intro": {"type": ["boolean", "null"]},
+              "selling_points": {"type": ["boolean", "null"]},
+              "products": {"type": ["boolean", "null"]},
+              "pricing": {"type": ["boolean", "null"]},
+              "reputation": {"type": ["boolean", "null"]},
+              "news": {"type": ["boolean", "null"]}
+            }
+          },
+          "fact_errors": {
+            "type": ["array", "null"],
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["error_id", "description", "severity"],
+              "properties": {
+                "error_id": {"type": "string", "pattern": "^error-[a-z0-9][a-z0-9-]*$"},
+                "description": {"type": "string", "minLength": 1},
+                "severity": {"enum": ["minor", "major"]}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

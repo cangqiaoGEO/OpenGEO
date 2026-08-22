@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<!--
+  官网生成器 · 参考模板（assets/site-template.html）
+  ==============================================
+  用法：复制本文件 → 按 references/industry-design-map.md 替换 :root 设计 token
+        → 按 references/geo-requirements.md 填充 JSON-LD 与内容区块
+  ★ 标注 = GEO 关键位，不可删除；※ 标注 = 占位内容，交付前替换
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ★ GEO: title 含品牌名+行业核心词，≤60字 -->
+<title>示例品牌 - 高端行业解决方案服务商</title>
+<!-- ★ GEO: description ≤150字，是什么+做什么+优势+地域 -->
+<meta name="description" content="示例品牌专注为成长型企业提供一站式解决方案，服务覆盖【行业领域】，累计服务120+客户，以专业团队与可量化成果赢得市场信赖。">
+<meta name="keywords" content="示例品牌,行业词,核心服务词,城市">
+<meta property="og:type" content="website">
+<meta property="og:title" content="示例品牌 - 高端行业解决方案服务商">
+<meta property="og:description" content="示例品牌专注【行业领域】解决方案，服务120+客户，专业团队，可量化成果。">
+<meta property="og:site_name" content="示例品牌">
+<meta name="twitter:card" content="summary_large_image">
+<!-- ★ GEO: JSON-LD 结构化数据（Organization + WebSite + FAQPage 骨架） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "示例品牌（全称）",
+      "alternateName": "示例品牌",
+      "url": "https://www.example.com",
+      "description": "高端行业解决方案服务商，服务120+客户",
+      "foundingDate": "2015",
+      "founder": { "@type": "Person", "name": "※创始人姓名" },
+      "address": { "@type": "PostalAddress", "addressLocality": "城市", "addressRegion": "省份", "addressCountry": "CN" },
+      "contactPoint": { "@type": "ContactPoint", "telephone": "+86-000-0000-0000", "contactType": "customer service", "availableLanguage": "zh-CN" }
+    },
+    { "@type": "WebSite", "name": "示例品牌官网", "url": "https://www.example.com", "inLanguage": "zh-CN" },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "示例品牌主要提供什么服务？", "acceptedAnswer": { "@type": "Answer", "text": "※答案须与页面FAQ正文一致。" } }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* ============ ★ 设计 Token（按行业映射表替换此处即可换肤） ============ */
+:root{
+  /* 中性色 */
+  --c-bg:        #F7F6F2;   /* 页面浅底 */
+  --c-surface:   #FFFFFF;   /* 卡片底 */
+  --c-ink:       #1C1B18;   /* 正文深色 */
+  --c-ink-soft:  #6B6A64;   /* 次级文字 */
+  /* 深色区 */
+  --c-dark:      #14181F;   /* 深色 Hero/Footer 底 */
+  --c-dark-soft: #1E242E;
+  /* 主色 / 强调（示例为金+墨的高端咨询风，按行业替换） */
+  --c-primary:   #9A7B4F;   /* 主色：哑金 */
+  --c-accent:    #B08D57;   /* 强调：亮金 */
+  --c-line:      rgba(28,27,24,.10);
+  --c-line-dark: rgba(255,255,255,.12);
+  /* 字体 */
+  --font-head:   "PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+  --font-body:   -apple-system,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+  /* 尺寸节奏 */
+  --space: 96px;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(20,24,31,.04), 0 12px 32px rgba(20,24,31,.06);
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--c-ink);background:var(--c-bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+img,svg{display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+section{position:relative}
+
+/* ---------- 导航 ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:100;transition:background .4s,box-shadow .4s}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px}
+.nav.scrolled{background:rgba(255,255,255,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--c-line)}
+.nav.scrolled .nav-link,.nav.scrolled .brand{color:var(--c-ink)}
+.brand{font-weight:700;font-size:1.15rem;letter-spacing:.06em}
+.brand em{font-style:normal;color:var(--c-accent)}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-link{font-size:.92rem;color:#EDECE6;letter-spacing:.03em;opacity:.92;transition:opacity .3s}
+.nav.scrolled .nav-link{opacity:.85}
+.nav-link:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;border-radius:999px;font-size:.92rem;letter-spacing:.04em;transition:all .35s var(--ease);cursor:pointer;border:1px solid transparent;white-space:nowrap}
+.btn-gold{background:linear-gradient(135deg,var(--c-primary),var(--c-accent));color:#fff}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(154,123,79,.35)}
+.btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-dark{border-color:var(--c-line);color:var(--c-ink)}
+.btn-dark:hover{border-color:var(--c-primary);color:var(--c-primary)}
+.burger{display:none;background:none;border:none;width:40px;height:40px;position:relative;cursor:pointer}
+.burger span{position:absolute;left:10px;right:10px;height:1.5px;background:#fff;transition:.3s}
+.burger span:nth-child(1){top:14px}.burger span:nth-child(2){top:20px}.burger span:nth-child(3){top:26px}
+.nav.scrolled .burger span{background:var(--c-ink)}
+
+/* ---------- Hero（深色 + 高级占位视觉：渐变光晕+细网格） ---------- */
+.hero{min-height:100vh;background:var(--c-dark);color:#EDECE6;display:flex;align-items:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(52% 60% at 78% 22%, rgba(154,123,79,.22), transparent 62%),
+    radial-gradient(40% 50% at 12% 88%, rgba(56,89,138,.18), transparent 60%);
+}
+.hero::after{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(70% 80% at 50% 40%,#000 30%,transparent 75%);
+}
+.hero .container{position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.8rem;letter-spacing:.28em;color:var(--c-accent);text-transform:uppercase}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--c-accent)}
+.hero h1{font-family:var(--font-head);font-weight:700;font-size:clamp(2.4rem,5.6vw,4.2rem);line-height:1.16;letter-spacing:.01em;margin:28px 0 24px;max-width:14em}
+.hero h1 .gold{background:linear-gradient(120deg,var(--c-primary),var(--c-accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:clamp(1rem,1.5vw,1.2rem);color:rgba(237,236,230,.78);max-width:34em;margin-bottom:42px}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:44px;margin-top:72px;flex-wrap:wrap}
+.hero-meta .m b{font-size:1.6rem;font-weight:700;letter-spacing:.02em;display:block}
+.hero-meta .m span{font-size:.82rem;color:rgba(237,236,230,.6);letter-spacing:.08em}
+
+/* ---------- 通用区块标题 ---------- */
+.sec{padding:var(--space) 0}
+.sec-head{margin-bottom:56px}
+.sec-head .k{color:var(--c-primary);font-size:.8rem;letter-spacing:.3em;margin-bottom:14px;display:block}
+.sec-head h2{font-family:var(--font-head);font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:700;letter-spacing:.01em}
+.sec-head p{color:var(--c-ink-soft);max-width:38em;margin-top:14px}
+
+/* ---------- 信任条 ---------- */
+.trustbar{border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);background:var(--c-surface)}
+.trustbar-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:22px 0;color:var(--c-ink-soft);font-size:.9rem;letter-spacing:.12em}
+.trustbar-inner b{color:var(--c-ink);font-weight:600}
+
+/* ---------- 服务卡片 ---------- */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--radius);padding:36px 32px;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-4px);border-color:var(--c-primary);box-shadow:0 18px 40px rgba(20,24,31,.09)}
+.card .ic{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--c-primary),var(--c-accent));color:#fff;margin-bottom:22px;font-size:1.25rem}
+.card h3{font-size:1.12rem;font-weight:600;margin-bottom:10px}
+.card p{color:var(--c-ink-soft);font-size:.93rem}
+.card .tag{display:inline-block;margin-top:18px;font-size:.78rem;color:var(--c-primary);letter-spacing:.1em;border:1px solid var(--c-primary);padding:4px 14px;border-radius:999px}
+
+/* ---------- 数字区（深底） ---------- */
+.dark-sec{background:var(--c-dark);color:#EDECE6}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+.stat b{font-size:clamp(2rem,4vw,3rem);font-weight:700;font-variant-numeric:tabular-nums;display:block;background:linear-gradient(120deg,var(--c-primary),var(--c-accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:.88rem;color:rgba(237,236,230,.65);letter-spacing:.08em}
+.stat .divider{width:34px;height:1px;background:var(--c-accent);margin:14px 0}
+
+/* ---------- 案例 ---------- */
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.case{border:1px solid var(--c-line);border-radius:var(--radius);overflow:hidden;background:var(--c-surface);transition:transform .4s var(--ease),box-shadow .4s}
+.case:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(20,24,31,.09)}
+.case .cv{height:200px;position:relative;overflow:hidden}
+/* ※ 占位视觉：行业化渐变几何，有真实图时替换为 <img> */
+.case .cv::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--c-dark),var(--c-dark-soft))}
+.case .cv::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 80% 20%,rgba(176,141,87,.25),transparent 60%),radial-gradient(50% 60% at 10% 90%,rgba(56,89,138,.2),transparent 55%)}
+.case .cv .glyph{position:absolute;right:24px;bottom:-14px;font-size:5.4rem;font-weight:800;color:rgba(255,255,255,.08);line-height:1}
+.case-body{padding:26px 28px}
+.case-body .industry{font-size:.74rem;letter-spacing:.2em;color:var(--c-primary)}
+.case-body h3{font-size:1.1rem;font-weight:600;margin:8px 0 10px}
+.case-body p{color:var(--c-ink-soft);font-size:.92rem}
+.case-body .result{display:flex;gap:26px;margin-top:16px}
+.case-body .result b{font-size:1.2rem;font-weight:700;color:var(--c-ink)}
+.case-body .result span{font-size:.76rem;color:var(--c-ink-soft);display:block}
+
+/* ---------- 团队 ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.person{text-align:center}
+.person .avatar{width:120px;height:120px;border-radius:50%;margin:0 auto 18px;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--c-dark),var(--c-dark-soft))}
+.person .avatar::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 30% 25%,rgba(176,141,87,.3),transparent 65%)}
+.person h4{font-size:1.02rem;font-weight:600}
+.person .role{font-size:.8rem;color:var(--c-primary);letter-spacing:.14em;margin:6px 0 10px;display:block}
+.person p{font-size:.84rem;color:var(--c-ink-soft);max-width:22em;margin:0 auto}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:820px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--c-line)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:26px 4px;background:none;border:none;text-align:left;font-size:1.04rem;font-weight:600;color:var(--c-ink);cursor:pointer;font-family:var(--font-body)}
+.faq-q .x{flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1px solid var(--c-line);display:flex;align-items:center;justify-content:center;font-weight:300;font-size:1.1rem;transition:transform .35s var(--ease),border-color .35s;color:var(--c-ink-soft)}
+.faq-item.open .x{transform:rotate(45deg);border-color:var(--c-primary);color:var(--c-primary)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.faq-a p{padding:0 4px 26px;color:var(--c-ink-soft);font-size:.95rem;max-width:56em}
+
+/* ---------- CTA ---------- */
+.cta-sec{background:var(--c-dark);color:#EDECE6;text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:"";position:absolute;inset:0;background:radial-gradient(45% 60% at 50% 0%,rgba(154,123,79,.2),transparent 65%)}
+.cta-sec .container{position:relative;padding:96px 24px}
+.cta-sec h2{font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:700;letter-spacing:.01em}
+.cta-sec p{color:rgba(237,236,230,.7);margin:18px auto 36px;max-width:32em}
+
+/* ---------- 联系 ---------- */
+.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:start}
+.c-info h3{font-size:1.2rem;font-weight:600;margin-bottom:8px}
+.c-info .row{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--c-line);align-items:flex-start}
+.c-info .row .k{flex:0 0 76px;font-size:.82rem;letter-spacing:.18em;color:var(--c-ink-soft);padding-top:3px}
+.c-info .row .v{font-size:.98rem}
+.c-form{background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--radius);padding:36px;box-shadow:var(--shadow)}
+.c-form label{display:block;font-size:.84rem;letter-spacing:.06em;margin:18px 0 8px;color:var(--c-ink-soft)}
+.c-form input,.c-form textarea{width:100%;padding:13px 16px;border:1px solid var(--c-line);border-radius:10px;font-family:var(--font-body);font-size:.95rem;background:#fff;transition:border-color .3s;color:var(--c-ink)}
+.c-form input:focus,.c-form textarea:focus{outline:none;border-color:var(--c-primary)}
+.c-form textarea{resize:vertical;min-height:110px}
+.c-form .btn{margin-top:24px;width:100%;justify-content:center}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--c-dark);color:rgba(237,236,230,.7);padding:56px 0 40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--c-line-dark)}
+.footer h5{color:#EDECE6;font-size:.9rem;font-weight:600;margin-bottom:18px;letter-spacing:.1em}
+.footer a{display:block;font-size:.88rem;margin-bottom:10px;transition:color .3s}
+.footer a:hover{color:var(--c-accent)}
+.footer .brand em{font-style:normal;color:var(--c-accent)}
+.footer .desc{font-size:.88rem;max-width:26em;margin-top:14px}
+.footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:26px;font-size:.8rem;color:rgba(237,236,230,.45)}
+
+/* ---------- 动效（scroll-reveal） ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- 响应式 ---------- */
+@media(max-width:1024px){
+  .grid3{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(2,1fr);gap:36px}
+  .stats{grid-template-columns:repeat(2,1fr);gap:32px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  :root{--space:64px}
+  .nav-links{position:fixed;inset:76px 0 auto;background:var(--c-dark);flex-direction:column;gap:0;padding:0 24px;display:none}
+  .nav-links.open{display:flex}
+  .nav-links .nav-link{padding:16px 0;border-bottom:1px solid var(--c-line-dark);width:100%;color:#EDECE6}
+  .nav-links .btn{margin:20px 0}
+  .burger{display:block}
+  .grid3,.case-grid,.contact-grid{grid-template-columns:1fr}
+  .case-grid{gap:20px}
+  .hero-meta{gap:28px}
+  .hero p.lead{margin-bottom:30px}
+  .cta-sec .container{padding:72px 24px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ★ GEO: header 导航 -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="brand">示例<em>品牌</em></a>
+    <nav class="nav-links" id="menu" aria-label="主导航">
+      <a class="nav-link" href="#about">关于我们</a>
+      <a class="nav-link" href="#services">产品服务</a>
+      <a class="nav-link" href="#cases">客户案例</a>
+      <a class="nav-link" href="#team">核心团队</a>
+      <a class="nav-link" href="#faq">常见问题</a>
+      <a class="btn btn-gold" href="#contact">预约咨询</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="打开菜单"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <!-- ★ GEO: Hero（H1 唯一：品牌定位句，含行业词） -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <span class="eyebrow reveal">SINCE 2015 · 城市 · 行业领域</span>
+      <h1 class="reveal">以专业与匠心，成就<span class="gold">【行业领域】</span>标杆之选</h1>
+      <p class="lead reveal">示例品牌专注为【目标客群】提供【核心服务】，以「专业团队 × 可量化成果 × 全周期服务」三大承诺，陪伴 120+ 客户完成从 0 到 1 的跃迁。</p>
+      <div class="hero-cta reveal">
+        <a href="#contact" class="btn btn-gold">获取专属方案</a>
+        <a href="#services" class="btn btn-ghost">了解服务</a>
+      </div>
+      <div class="hero-meta reveal">
+        <div class="m"><b data-count="120">0</b><span>服务客户</span></div>
+        <div class="m"><b data-count="8">0</b><span>行业深耕</span></div>
+        <div class="m"><b data-count="97">0</b><span>客户满意度</span></div>
+        <div class="m"><b data-count="100">0</b><span>专业团队</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ★ GEO: 信任条（资质/可信信号） -->
+  <div class="trustbar">
+    <div class="container trustbar-inner reveal">
+      <span>国家高新技术企业认证 <b>✓</b></span>
+      <span>ISO 9001 质量管理体系 <b>✓</b></span>
+      <span>【行业协会】会员单位 <b>✓</b></span>
+      <span>连续三年行业口碑榜 <b>TOP10</b></span>
+    </div>
+  </div>
+
+  <!-- ★ GEO: 品牌简介（"这个品牌是什么"） -->
+  <section class="sec" id="about">
+    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+      <div class="reveal">
+        <span class="k">ABOUT US</span>
+        <h2 style="font-family:var(--font-head);font-size:clamp(1.7rem,3vw,2.3rem);font-weight:700;line-height:1.3">关于示例品牌<br>我们是谁，为何值得信赖</h2>
+      </div>
+      <div class="reveal" style="color:var(--c-ink-soft)">
+        <p style="margin-bottom:18px">示例品牌成立于 2015 年，总部位于【城市】，是【行业领域】一站式解决方案服务商。我们相信：真正的高端服务，是把复杂留给自己，把简单与确定交给客户。</p>
+        <p>团队由【创始人背景】领衔，汇聚【行业人才结构】。过去八年，我们服务了【客户类型】客户，覆盖【行业/地域分布】，沉淀出一套经过市场验证的方法论。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ★ GEO: 产品服务（"他们做什么"） -->
+  <section class="sec" id="services" style="background:var(--c-surface);border-top:1px solid var(--c-line)">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="k">SERVICES</span>
+        <h2>核心产品与服务</h2>
+        <p>围绕【客群核心诉求】，提供从咨询、方案到落地的全周期服务，每项服务均有明确交付标准。</p>
+      </div>
+      <div class="grid3">
+        <div class="card reveal"><div class="ic">01</div><h3>服务一：{服务名}</h3><p>面向【场景】，提供【内容】。适用：【人群/阶段】。</p><span class="tag">了解详情 →</span></div>
+        <div class="card reveal"><div class="ic">02</div><h3>服务二：{服务名}</h3><p>面向【场景】，提供【内容】。适用：【人群/阶段】。</p><span class="tag">了解详情 →</span></div>
+        <div class="card reveal"><div class="ic">03</div><h3>服务三：{服务名}</h3><p>面向【场景】，提供【内容】。适用：【人群/阶段】。</p><span class="tag">了解详情 →</span></div>
+        <div class="card reveal"><div class="ic">04</div><h3>服务四：{服务名}</h3><p>面向【场景】，提供【内容】。适用：【人群/阶段】。</p><span class="tag">了解详情 →</span></div>
+        <div class="card reveal"><div class="ic">05</div><h3>服务五：{服务名}</h3><p>面向【场景】，提供【内容】。适用：【人群/阶段】。</p><span class="tag">了解详情 →</span></div>
+        <div class="card reveal"><div class="ic">06</div><h3>服务六：{服务名}</h3><p>面向【场景】，提供【内容】。适用：【人群/阶段】。</p><span class="tag">了解详情 →</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ★ GEO: 数据实力（量化可信度） -->
+  <section class="dark-sec sec" id="stats">
+    <div class="container">
+      <div class="sec-head reveal" style="text-align:center">
+        <span class="k" style="color:var(--c-accent)">BY THE NUMBERS</span>
+        <h2 style="color:#EDECE6">用数据说话</h2>
+      </div>
+      <div class="stats">
+        <div class="stat reveal"><div class="divider"></div><b data-count="120">0</b><span>服务客户数</span></div>
+        <div class="stat reveal"><div class="divider"></div><b data-count="8">0</b><span>行业深耕年限</span></div>
+        <div class="stat reveal"><div class="divider"></div><b data-count="300">0</b><span>交付项目数</span></div>
+        <div class="stat reveal"><div class="divider"></div><b data-count="97">0</b><span>客户满意度（%）</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ★ GEO: 案例（"别人怎么说"） -->
+  <section class="sec" id="cases">
+    <div class="container">
+      <div class="sec-head reveal">
+        <span class="k">CASE STUDIES</span>
+        <h2>客户案例与成果</h2>
+        <p>真实客户 × 明确目标 × 可量化成果。※ 案例数据为示例，交付前请替换为真实案例。</p>
+      </div>
+      <div class="case-grid">
+        <article class="case reveal">
+          <div class="cv"><span class="glyph">A</span></div>
+          <div class="case-body">
+            <span class="industry">【客户行业】</span>
+            <h3>客户名称 · 项目目标一句话</h3>
+            <p>背景描述：客户面临的核心问题与诉求。</p>
+            <div class="result">
+              <div><b>+38%</b><span>核心指标提升</span></div>
+              <div><b>3个月</b><span>项目周期</span></div>
+            </div>
+          </div>
+        </article>
+        <article class="case reveal">
+          <div class="cv"><span class="glyph">B</span></div>
+          <div class="case-body">
+            <span class="industry">【客户行业】</span>
+            <h3>客户名称 · 项目目标一句话</h3>
+            <p>背景描述：客户面临的核心问题与诉求。</p>
+            <div class="result">
+              <div><b>+52%</b><span>核心指标提升</span></div>
+              <div><b>2个月</b><span>项目周期</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ★ GEO: 团队（E-E-A-T 信号） -->
+  <section class="sec" id="team" style="background:var(--c-surface);border-top:1px solid var(--c-line)">
+    <div class="container">
+      <div class="sec-head reveal" style="text-align:center">
+        <span class="k">OUR TEAM</span>
+        <h2>核心团队</h2>
+        <p style="margin-left:auto;margin-right:auto">专业背景 × 行业深耕，是我们最硬的底气。※ 团队信息为示例，请替换为真实成员。</p>
+      </div>
+      <div class="team-grid">
+        <div class="person reveal"><div class="avatar"></div><h4>姓名</h4><span class="role">创始人 · CEO</span><p>背景经历一句话，突出资历与行业贡献。</p></div>
+        <div class="person reveal"><div class="avatar"></div><h4>姓名</h4><span class="role">联合创始人 · CTO</span><p>背景经历一句话，突出专业与技术实力。</p></div>
+        <div class="person reveal"><div class="avatar"></div><h4>姓名</h4><span class="role">产品负责人</span><p>背景经历一句话，突出产品与交付能力。</p></div>
+        <div class="person reveal"><div class="avatar"></div><h4>姓名</h4><span class="role">市场负责人</span><p>背景经历一句话，突出增长与品牌能力。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ★ GEO: FAQ（≥6条，与 JSON-LD 一致） -->
+  <section class="sec" id="faq">
+    <div class="container">
+      <div class="sec-head reveal" style="text-align:center">
+        <span class="k">FAQ</span>
+        <h2>常见问题</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">示例品牌主要提供什么服务？<span class="x">+</span></button>
+          <div class="faq-a"><p>※ 答案：50-120字，直答+支撑+引导。此答案必须与 JSON-LD FAQPage 一致。</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">合作流程是怎样的？<span class="x">+</span></button>
+          <div class="faq-a"><p>※ 答案：需求沟通 → 方案定制 → 签约启动 → 落地执行 → 复盘优化。</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">报价大概是多少？<span class="x">+</span></button>
+          <div class="faq-a"><p>※ 答案：根据需求与规模定制，提供基础/标准/定制三档方案，欢迎预约咨询获取报价。</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">项目交付周期多长？<span class="x">+</span></button>
+          <div class="faq-a"><p>※ 答案：常规项目 2-4 周，大型项目 1-3 个月，具体以方案确认为准。</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">服务覆盖哪些地区？<span class="x">+</span></button>
+          <div class="faq-a"><p>※ 答案：总部位于【城市】，服务覆盖全国，支持线上线下协同交付。</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">如何保障服务质量与售后？<span class="x">+</span></button>
+          <div class="faq-a"><p>※ 答案：专属顾问 1v1 对接 + 里程碑节点验收 + 项目结束后 30 天免费支持。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ★ GEO: CTA + 联系（"在哪里、怎么联系"） -->
+  <section class="cta-sec">
+    <div class="container reveal">
+      <h2>准备好开启您的【行业】新篇章了吗？</h2>
+      <p>留下您的需求，专属顾问将在 24 小时内与您联系，为您定制专属方案。</p>
+      <a href="#contact" class="btn btn-gold">立即预约咨询</a>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="container contact-grid">
+      <div class="c-info reveal">
+        <span class="k">CONTACT</span>
+        <h3 style="font-family:var(--font-head);font-size:clamp(1.5rem,2.6vw,2rem);font-weight:700;margin-bottom:26px">联系我们</h3>
+        <div class="row"><span class="k">地址</span><span class="v">※ 省市区 × 街道 × 门牌号</span></div>
+        <div class="row"><span class="k">电话</span><span class="v">※ +86 000-0000-0000</span></div>
+        <div class="row"><span class="k">邮箱</span><span class="v">※ contact@example.com</span></div>
+        <div class="row"><span class="k">时间</span><span class="v">周一至周五 09:00 – 18:00</span></div>
+      </div>
+      <form class="c-form reveal" onsubmit="return false">
+        <label for="f-name">您的称呼 *</label>
+        <input id="f-name" type="text" placeholder="请输入姓名">
+        <label for="f-tel">联系电话 *</label>
+        <input id="f-tel" type="tel" placeholder="请输入手机号">
+        <label for="f-msg">需求描述</label>
+        <textarea id="f-msg" placeholder="简单描述您的需求，例如：希望了解服务报价"></textarea>
+        <button class="btn btn-gold" type="button" onclick="alert('※ 表单为示例：接入正式接口后即可提交。')">提交需求</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ★ GEO: footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#hero" class="brand" style="color:#EDECE6;font-weight:700;font-size:1.1rem">示例<em>品牌</em></a>
+        <p class="desc">高端【行业领域】解决方案服务商，以专业与匠心服务 120+ 客户。</p>
+      </div>
+      <div><h5>导航</h5><a href="#about">关于我们</a><a href="#services">产品服务</a><a href="#cases">客户案例</a><a href="#faq">常见问题</a></div>
+      <div><h5>服务</h5><a href="#services">服务一</a><a href="#services">服务二</a><a href="#services">服务三</a></div>
+      <div><h5>联系</h5><a href="#contact">※ 地址</a><a href="#contact">※ 电话</a><a href="#contact">※ 邮箱</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2015-2026 示例品牌（全称）版权所有</span>
+      <span>※ 备案号占位：京ICP备00000000号</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===== 导航滚动态 ===== */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+/* ===== 移动端菜单 ===== */
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.onclick=()=>menu.classList.toggle('open');
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('open'));
+/* ===== scroll-reveal ===== */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+/* ===== 数字滚动 count-up ===== */
+const nio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;nio.unobserve(e.target);
+  const el=e.target,end=+el.dataset.count,t0=performance.now();
+  (function tick(t){const p=Math.min((t-t0)/1000,1),v=Math.round(end*(1-Math.pow(1-p,3)));el.textContent=v;p<1?requestAnimationFrame(tick):el.textContent=end})(t0);
+}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>nio.observe(el));
+/* ===== FAQ 折叠 ===== */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');
+  q.onclick=()=>{const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null;i.querySelector('.faq-q').setAttribute('aria-expanded','false')});
+    if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';q.setAttribute('aria-expanded','true')}};
+});
+</script>
+</body>
+</html>

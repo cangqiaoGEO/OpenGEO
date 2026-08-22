@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cangqiaoedu.local/schemas/score-result.schema.json",
+  "title": "Brand GEO Score Result v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "brand", "protocol_id", "assessment", "observation_scores", "dimensions", "weights", "total", "grade", "grade_label", "weak_dimensions", "engines"],
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "sample_count", "unknown_count"],
+      "properties": {
+        "score": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "sample_count": {"type": "integer", "minimum": 0},
+        "unknown_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "answerScores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visibility", "recommendation", "citation_quality", "coverage", "sentiment"],
+      "properties": {
+        "visibility": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "recommendation": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "citation_quality": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "coverage": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "sentiment": {"type": ["number", "null"], "minimum": 0, "maximum": 100}
+      }
+    },
+    "engineResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["queries", "observed_queries", "visibility", "recommendation", "citation_quality", "coverage", "sentiment"],
+      "properties": {
+        "queries": {"type": "integer", "minimum": 0},
+        "observed_queries": {"type": "integer", "minimum": 0},
+        "visibility": {"$ref": "#/$defs/metric"},
+        "recommendation": {"$ref": "#/$defs/metric"},
+        "citation_quality": {"$ref": "#/$defs/metric"},
+        "coverage": {"$ref": "#/$defs/metric"},
+        "sentiment": {"$ref": "#/$defs/metric"}
+      }
+    }
+  },
+  "properties": {
+    "schema_version": {"const": "2.0.0"},
+    "brand": {"type": "string", "minLength": 1},
+    "protocol_id": {"type": "string"},
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "expected_observations", "observed_count", "unobserved_count", "measured_engines", "required_engines", "limitations"],
+      "properties": {
+        "status": {"enum": ["measured", "partially_measured", "insufficient_data"]},
+        "expected_observations": {"type": "integer", "minimum": 0},
+        "observed_count": {"type": "integer", "minimum": 0},
+        "unobserved_count": {"type": "integer", "minimum": 0},
+        "measured_engines": {"type": "integer", "minimum": 0},
+        "required_engines": {"type": "integer", "minimum": 1},
+        "limitations": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "observation_scores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["observation_id", "query_id", "engine", "status", "position", "scores"],
+        "properties": {
+          "observation_id": {"type": "string"},
+          "query_id": {"type": "string"},
+          "engine": {"type": "string"},
+          "status": {"enum": ["observed", "unobserved"]},
+          "position": {"enum": ["top1", "top1_tied", "top3", "top5", "mention", "absent", null]},
+          "scores": {"$ref": "#/$defs/answerScores"}
+        }
+      }
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visibility", "recommendation", "citation_quality", "coverage", "sentiment", "foundation"],
+      "properties": {
+        "visibility": {"$ref": "#/$defs/metric"},
+        "recommendation": {"$ref": "#/$defs/metric"},
+        "citation_quality": {"$ref": "#/$defs/metric"},
+        "coverage": {"$ref": "#/$defs/metric"},
+        "sentiment": {"$ref": "#/$defs/metric"},
+        "foundation": {"$ref": "#/$defs/metric"}
+      }
+    },
+    "weights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visibility", "recommendation", "citation_quality", "coverage", "sentiment", "foundation"],
+      "properties": {
+        "visibility": {"const": 0.3},
+        "recommendation": {"const": 0.2},
+        "citation_quality": {"const": 0.15},
+        "coverage": {"const": 0.15},
+        "sentiment": {"const": 0.1},
+        "foundation": {"const": 0.1}
+      }
+    },
+    "total": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+    "grade": {"enum": ["S", "A", "B", "C", "D", null]},
+    "grade_label": {"type": ["string", "null"]},
+    "weak_dimensions": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "engines": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/engineResult"}
+    }
+  }
+}

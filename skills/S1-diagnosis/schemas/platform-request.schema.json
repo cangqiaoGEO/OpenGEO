@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cangqiaoedu.local/schemas/platform-request.schema.json",
+  "title": "Brand GEO Platform Request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "protocol_id", "query_id", "consumer_product", "provider", "channel", "query", "requested_at", "configuration"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "request_id": {"type": "string", "pattern": "^request-[a-z0-9][a-z0-9-]*$"},
+    "protocol_id": {"type": "string", "pattern": "^protocol-[a-z0-9][a-z0-9-]*$"},
+    "query_id": {"type": "string", "pattern": "^q-[a-z0-9][a-z0-9-]*$"},
+    "consumer_product": {"enum": ["doubao", "qwen", "deepseek", "yuanbao"]},
+    "provider": {"enum": ["volcengine", "volcengine_coding_plan", "volcengine_agent_plan", "dashscope", "dashscope_token_plan", "deepseek", "tencent_tokenhub", "consumer_web"]},
+    "channel": {"enum": ["official_api", "official_app_browser"]},
+    "query": {"type": "string", "minLength": 1},
+    "requested_at": {"type": "string", "format": "date-time"},
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_requested", "search_mode", "search_required", "thinking_mode", "temperature", "max_output_tokens", "region", "language"],
+      "properties": {
+        "model_requested": {"type": ["string", "null"]},
+        "search_mode": {"enum": ["native", "none"]},
+        "search_required": {"type": "boolean"},
+        "thinking_mode": {"enum": ["enabled", "disabled", "platform_default"]},
+        "temperature": {"type": ["number", "null"], "minimum": 0, "maximum": 2},
+        "max_output_tokens": {"type": ["integer", "null"], "minimum": 1},
+        "region": {"type": "string", "minLength": 1},
+        "language": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

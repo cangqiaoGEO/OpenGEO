@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cangqiaoedu.local/schemas/industry-profile.schema.json",
+  "title": "Brand GEO Industry Profile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "industry_profile_id", "run_id", "status", "industry", "operating_scope", "service_modes", "market_characteristics", "decision_factors", "unknowns"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "industry_profile_id": {"type": "string", "pattern": "^industry-profile-[a-z0-9][a-z0-9-]*$"},
+    "run_id": {"type": "string", "pattern": "^run-[a-z0-9][a-z0-9-]*$"},
+    "status": {"enum": ["draft", "ready"]},
+    "industry": {"type": "string", "minLength": 1},
+    "operating_scope": {"enum": ["local", "regional", "national", "global", "mixed"]},
+    "service_modes": {
+      "type": "array",
+      "items": {"enum": ["in_store", "on_site", "remote", "online_only", "hybrid"]},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "market_characteristics": {
+      "type": "array",
+      "items": {"enum": ["location_sensitive", "appointment_based", "in_person_experience", "authorized_reseller", "high_consideration", "project_delivery", "recurring_service", "regulated", "digital_self_service"]},
+      "uniqueItems": true
+    },
+    "decision_factors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["factor_id", "name", "description", "importance", "applicability", "evidence_ids"],
+        "properties": {
+          "factor_id": {"type": "string", "pattern": "^factor-[a-z0-9][a-z0-9-]*$"},
+          "name": {"type": "string", "minLength": 1},
+          "description": {"type": "string", "minLength": 1},
+          "importance": {"enum": ["high", "medium", "low", "unknown"]},
+          "applicability": {"enum": ["required", "conditional", "not_applicable"]},
+          "evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+        }
+      }
+    },
+    "unknowns": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+  }
+}

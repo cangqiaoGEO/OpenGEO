@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cangqiaoedu.local/schemas/recommendations.schema.json",
+  "title": "Brand GEO Evidence-driven Recommendations v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "recommendation_package_id", "protocol_id", "audit_id", "recommendations"],
+  "properties": {
+    "schema_version": {"const": "2.0.0"},
+    "recommendation_package_id": {"type": "string", "pattern": "^recommendations-[a-z0-9][a-z0-9-]*$"},
+    "protocol_id": {"type": "string"},
+    "audit_id": {"type": "string"},
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["recommendation_id", "priority", "dimension", "business_context", "finding", "source_ids", "observation_ids", "hypothesis", "action", "expected_effect", "measure", "confidence"],
+        "properties": {
+          "recommendation_id": {"type": "string", "pattern": "^rec-[a-z0-9][a-z0-9-]*$"},
+          "priority": {"enum": ["P0", "P1", "P2"]},
+          "dimension": {"enum": ["visibility", "recommendation", "citation_quality", "coverage", "sentiment", "foundation"]},
+          "business_context": {"type": "string", "minLength": 1},
+          "finding": {"type": "string", "minLength": 1},
+          "source_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "observation_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "hypothesis": {"type": "string", "minLength": 1},
+          "action": {"type": "string", "minLength": 1},
+          "expected_effect": {"type": "string", "minLength": 1},
+          "measure": {"type": "string", "minLength": 1},
+          "confidence": {"enum": ["high", "medium", "low"]}
+        }
+      }
+    }
+  }
+}

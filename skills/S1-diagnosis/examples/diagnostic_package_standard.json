@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0.0",
+  "diagnostic_run": {
+    "schema_version": "1.0.0",
+    "run_id": "run-example-education",
+    "status": "ready",
+    "report_mode": "diagnostic",
+    "created_at": "2026-08-21T16:00:00+08:00",
+    "as_of": "2026-08-21",
+    "object_refs": {
+      "scope_id": "scope-example-education",
+      "context_id": "context-example-education",
+      "protocol_id": "protocol-example-education",
+      "brand_profile_id": "brand-profile-example-education",
+      "industry_profile_id": "industry-profile-example-education",
+      "measurement_plan_id": "measurement-plan-example-education",
+      "content_protocol_id": "content-protocol-example-education"
+    },
+    "stage_status": {
+      "research": "completed",
+      "entity_resolution": "completed",
+      "industry_adaptation": "completed",
+      "query_design": "completed",
+      "content_foundation": "pending",
+      "collection": "pending",
+      "annotation": "pending",
+      "audit": "pending",
+      "reporting": "pending"
+    },
+    "limitations": ["当前权重和等级仍属于 experimental M1"]
+  },
+  "brand_entity_profile": {
+    "schema_version": "1.0.0",
+    "brand_profile_id": "brand-profile-example-education",
+    "run_id": "run-example-education",
+    "status": "ready",
+    "canonical_name": "示例教育",
+    "entity_type": "brand",
+    "match_terms": [
+      {
+        "term_id": "term-example-education",
+        "term": "示例教育",
+        "term_type": "canonical",
+        "verification_status": "verified",
+        "evidence_ids": ["src-official-home"]
+      }
+    ],
+    "locations": [],
+    "official_channels": [
+      {
+        "channel_id": "channel-example-home",
+        "channel_type": "website",
+        "url": "https://example.com",
+        "verification_status": "verified",
+        "evidence_ids": ["src-official-home"]
+      }
+    ],
+    "relations": [],
+    "unknowns": []
+  },
+  "industry_profile": {
+    "schema_version": "1.0.0",
+    "industry_profile_id": "industry-profile-example-education",
+    "run_id": "run-example-education",
+    "status": "ready",
+    "industry": "嵌入式职业教育",
+    "operating_scope": "national",
+    "service_modes": ["hybrid"],
+    "market_characteristics": ["high_consideration", "project_delivery"],
+    "decision_factors": [
+      {
+        "factor_id": "factor-curriculum-fit",
+        "name": "课程与培养目标适配",
+        "description": "方案是否覆盖院校目标专业和实践教学要求",
+        "importance": "high",
+        "applicability": "required",
+        "evidence_ids": ["src-industry-report"]
+      },
+      {
+        "factor_id": "factor-delivery-proof",
+        "name": "项目交付证据",
+        "description": "是否具有同类实训室建设和持续服务证据",
+        "importance": "high",
+        "applicability": "required",
+        "evidence_ids": ["src-official-home"]
+      }
+    ],
+    "unknowns": ["采购预算和验收权重尚未完成外部验证"]
+  },
+  "measurement_plan": {
+    "schema_version": "1.0.0",
+    "measurement_plan_id": "measurement-plan-example-education",
+    "run_id": "run-example-education",
+    "status": "frozen",
+    "query_protocol_id": "protocol-example-education",
+    "content_protocol_id": "content-protocol-example-education",
+    "critical_query_ids": ["q-category-recommendation", "q-solution"],
+    "query_mappings": [
+      {
+        "query_id": "q-brand-direct",
+        "decision_factor_ids": ["factor-delivery-proof"],
+        "location_ids": [],
+        "commercial_relevance": "high"
+      },
+      {
+        "query_id": "q-category-recommendation",
+        "decision_factor_ids": ["factor-curriculum-fit", "factor-delivery-proof"],
+        "location_ids": [],
+        "commercial_relevance": "high"
+      },
+      {
+        "query_id": "q-solution",
+        "decision_factor_ids": ["factor-curriculum-fit"],
+        "location_ids": [],
+        "commercial_relevance": "high"
+      },
+      {
+        "query_id": "q-brand-comparison",
+        "decision_factor_ids": ["factor-curriculum-fit", "factor-delivery-proof"],
+        "location_ids": [],
+        "commercial_relevance": "high"
+      }
+    ],
+    "aggregation_policy": {
+      "preserve_query_level_results": true,
+      "preserve_channel_separation": true,
+      "allow_cross_segment_offset": false
+    }
+  },
+  "content_foundation_protocol": {
+    "schema_version": "1.0.0",
+    "content_protocol_id": "content-protocol-example-education",
+    "run_id": "run-example-education",
+    "brand_profile_id": "brand-profile-example-education",
+    "industry_profile_id": "industry-profile-example-education",
+    "status": "frozen",
+    "created_at": "2026-08-21T16:05:00+08:00",
+    "probes": [
+      {
+        "probe_id": "probe-official-site",
+        "probe_type": "official_site",
+        "applicability": "required",
+        "target_terms": ["示例教育", "嵌入式实训解决方案"],
+        "decision_factor_ids": ["factor-curriculum-fit", "factor-delivery-proof"],
+        "expected_evidence": ["existence", "identity_match", "service_accuracy"],
+        "rationale": "核验品牌身份、方案边界和项目交付主张"
+      },
+      {
+        "probe_id": "probe-third-party",
+        "probe_type": "third_party_content",
+        "applicability": "required",
+        "target_terms": ["示例教育", "职业院校嵌入式实训"],
+        "decision_factor_ids": ["factor-delivery-proof"],
+        "expected_evidence": ["authority", "freshness"],
+        "rationale": "核验是否存在独立来源支持项目交付能力"
+      }
+    ]
+  }
+}

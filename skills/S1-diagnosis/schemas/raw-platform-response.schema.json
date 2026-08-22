@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cangqiaoedu.local/schemas/raw-platform-response.schema.json",
+  "title": "Brand GEO Raw Platform Response v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "response_id", "request_id", "protocol_id", "query_id", "consumer_product", "provider", "channel", "status", "collected_at", "model_requested", "model_reported", "search_requested", "search_executed", "citation_mode", "raw_text", "citations", "raw_payload", "request_fingerprint", "platform_request_id", "screenshot_path", "error"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "response_id": {"type": "string", "pattern": "^response-[a-z0-9][a-z0-9-]*$"},
+    "request_id": {"type": "string", "pattern": "^request-[a-z0-9][a-z0-9-]*$"},
+    "protocol_id": {"type": "string"},
+    "query_id": {"type": "string"},
+    "consumer_product": {"enum": ["doubao", "qwen", "deepseek", "yuanbao"]},
+    "provider": {"enum": ["volcengine", "volcengine_coding_plan", "volcengine_agent_plan", "dashscope", "dashscope_token_plan", "deepseek", "tencent_tokenhub", "consumer_web"]},
+    "channel": {"enum": ["official_api", "official_app_browser"]},
+    "status": {"enum": ["completed", "failed", "blocked_auth"]},
+    "collected_at": {"type": "string", "format": "date-time"},
+    "model_requested": {"type": ["string", "null"]},
+    "model_reported": {"type": ["string", "null"]},
+    "search_requested": {"type": "boolean"},
+    "search_executed": {"type": ["boolean", "null"]},
+    "citation_mode": {"enum": ["structured", "inline_only", "none", "unknown"]},
+    "raw_text": {"type": ["string", "null"]},
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["url", "title"],
+        "properties": {
+          "url": {"type": "string", "pattern": "^https?://"},
+          "title": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "raw_payload": {"type": ["object", "array", "null"]},
+    "request_fingerprint": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "platform_request_id": {"type": ["string", "null"]},
+    "screenshot_path": {"type": ["string", "null"]},
+    "error": {"type": ["string", "null"]}
+  }
+}

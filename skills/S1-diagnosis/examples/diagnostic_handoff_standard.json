@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "handoff_id": "handoff-example-education",
+  "run_id": "run-example-education",
+  "report_mode": "diagnostic",
+  "generated_at": "2026-08-21T18:00:00+08:00",
+  "brand": "示例教育",
+  "scope": {
+    "market": "中国大陆中文市场",
+    "critical_query_ids": ["q-category-recommendation"],
+    "channels": ["official_app_browser", "public_web"]
+  },
+  "artifact_refs": [
+    {
+      "artifact_id": "artifact-example-research",
+      "artifact_type": "research_package",
+      "path": "skills/S1-diagnosis/examples/research_package_standard.json"
+    },
+    {
+      "artifact_id": "artifact-example-stability",
+      "artifact_type": "stability_result",
+      "path": "skills/S1-diagnosis/examples/stability_result_standard.json"
+    }
+  ],
+  "entity_observations": [
+    {
+      "entity_observation_id": "entity-obs-example-app",
+      "query_id": "q-category-recommendation",
+      "artifact_ref_ids": ["artifact-example-stability"],
+      "match_status": "exact_canonical",
+      "matched_terms": ["示例教育"],
+      "rationale": "重复观测中出现已核验的规范品牌名"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "finding-example-visible",
+      "statement": "规范品牌名在当前受控查询中被观察到",
+      "epistemic_status": "observed",
+      "confidence": "medium",
+      "artifact_ref_ids": ["artifact-example-stability"],
+      "counterevidence_ref_ids": [],
+      "business_impact": "品牌已进入候选集合，但当前样本不足以证明稳定位置"
+    }
+  ],
+  "evidence_gaps": [
+    {
+      "gap_id": "gap-example-multi-platform",
+      "statement": "尚无第二消费者平台的独立观测",
+      "impact": "不能外推到整个生成式搜索市场",
+      "required_evidence": ["同一冻结查询在另一消费者 App 的重复观测"]
+    }
+  ],
+  "planning_questions": [
+    {
+      "planning_question_id": "planning-q-example-stability",
+      "question": "下一阶段应优先扩大平台覆盖还是提高当前平台的重复样本量",
+      "related_finding_ids": ["finding-example-visible"],
+      "validation_metric": "分平台实体出现率及其置信区间"
+    }
+  ],
+  "limitations": ["单标注者复核，尚未测量标注一致性"]
+}
