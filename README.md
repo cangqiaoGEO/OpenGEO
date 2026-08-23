@@ -67,7 +67,7 @@ OpenGEO 是一个开源组织（[github.com/cangqiaoGEO](https://github.com/cang
 | L2 洞察 | [opengeo-insights](https://github.com/cangqiaoGEO/opengeo-insights) | 意图词、内容差距、竞品对标、地基体检 | Scrunch Insights |
 | L3 执行 | [opengeo-skills](https://github.com/cangqiaoGEO/opengeo-skills) | 七技规格、总控 Agent、平台实现（WorkBuddy v1） | Profound Agents / Frase |
 | L4 站点 | [opengeo-agentready](https://github.com/cangqiaoGEO/opengeo-agentready) | llms.txt / JSON-LD / AI 可读页面生成 | Scrunch AXP |
-| L5 基准 | [opengeo-index](https://github.com/cangqiaoGEO/opengeo-index) | 行业 × 城市 × 引擎公开基准 | Profound Index |
+| L5 基准 | [opengeo-index](https://github.com/cangqiaoGEO/opengeo-index) | **OpenGEO Index（可见度指数）**：行业 × 城市 × 引擎公开基准 | Profound Index |
 
 > 2026-08-23 评审决议：主仓只做门户 + 课程 + 治理，`skills/`、`brand-facts/`、`system/` 已迁出（对照表见 [MIGRATION.md](MIGRATION.md)）。**建设顺序：先 L0 规范 / L1 测量 / L3 执行，L2 / L4 / L5 为第二批。**
 
