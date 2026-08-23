@@ -55,15 +55,23 @@ GEO（Generative Engine Optimization，生成式引擎优化）正在成为企�
 
 与市面「GEO Agent」的区别就一句话：**别人的 Agent 止于「生成方案」，这套系统闭环到「复测分数」。**
 
-## 仓库地图
+## 组织与仓库地图（六层产品框架）
 
-| 目录 | 内容 |
-| --- | --- |
-| [`coursebook/`](coursebook/) | **详解版在线教程**（8 篇+16 张图解+实操框，[在线阅读](https://cangqiaogeo.github.io/OpenGEO/course/)） |
-| [`textbook/`](textbook/) | 学员教材单文件精简版 |
-| [`system/`](system/) | 作战系统架构与叙事、WorkBuddy 平台落地实现方案 |
-| [`skills/`](skills/) | 七技实现：S1 含证据契约/采集/审计/报告与 WorkBuddy 打包，S2/S7 含校验脚本，S3~S6 已升级为完整技能目录；另含总控 Agent 与自动化模板 |
-| [`brand-facts/`](brand-facts/) | 品牌事实库：OKF L1 规范 + 可直接复制的 bundle 模板 |
+OpenGEO 是一个开源组织（[github.com/cangqiaoGEO](https://github.com/cangqiaoGEO)），按「六层 + 治理」拆为独立仓库，本仓为门户：
+
+| 层 | 仓库 | 一句话 | 对标 |
+| --- | --- | --- | --- |
+| 门户 | **OpenGEO**（本仓） | 初衷、口径宪章、[详解教程](https://cangqiaogeo.github.io/OpenGEO/course/)、[避坑指南](guides/)、官网 | — |
+| L0 规范 | [opengeo-spec](https://github.com/cangqiaoGEO/opengeo-spec) | 品牌事实库 OKF 规范与模板——唯一事实源 | 无（独创层） |
+| L1 测量 | [opengeo-audit](https://github.com/cangqiaoGEO/opengeo-audit) | 中国引擎六维可见度诊断与周测 | Profound Monitor / Peec |
+| L2 洞察 | [opengeo-insights](https://github.com/cangqiaoGEO/opengeo-insights) | 意图词、内容差距、竞品对标、地基体检 | Scrunch Insights |
+| L3 执行 | [opengeo-skills](https://github.com/cangqiaoGEO/opengeo-skills) | 七技规格、总控 Agent、平台实现（WorkBuddy v1） | Profound Agents / Frase |
+| L4 站点 | [opengeo-agentready](https://github.com/cangqiaoGEO/opengeo-agentready) | llms.txt / JSON-LD / AI 可读页面生成 | Scrunch AXP |
+| L5 基准 | [opengeo-index](https://github.com/cangqiaoGEO/opengeo-index) | 行业 × 城市 × 引擎公开基准 | Profound Index |
+
+> 本仓 `skills/`、`brand-facts/`、`system/` 目录已迁移到对应层仓库，保留至团队评审通过后归档（见 [MIGRATION.md](MIGRATION.md)）；新开发请直接在层仓库进行。
+
+定位一句话：**GEO 的开放标准与开源工具层——闭源 SaaS 把「看见」卖 399 美元/月，OpenGEO 把「看见」变成公共品。** 调研与框架全文见 [docs/positioning.md](docs/positioning.md)。
 
 ## 快速开始（三步）
 
