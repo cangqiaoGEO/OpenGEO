@@ -61,7 +61,7 @@ OpenGEO 是一个开源组织（[github.com/cangqiaoGEO](https://github.com/cang
 
 | 层 | 仓库 | 一句话 | 对标 |
 | --- | --- | --- | --- |
-| 门户 | **OpenGEO**（本仓） | 初衷、口径宪章、[详解教程](https://cangqiaogeo.github.io/OpenGEO/course/)、[避坑指南](guides/)、官网 | — |
+| 门户 | **OpenGEO**（本仓） | 初衷、口径宪章、[详解教程](https://cangqiaogeo.github.io/OpenGEO/course/)、[团队图解教程](https://cangqiaogeo.github.io/OpenGEO/learn/)、[避坑指南](guides/)、官网 | — |
 | L0 规范 | [opengeo-spec](https://github.com/cangqiaoGEO/opengeo-spec) | 品牌事实库 OKF 规范与模板——唯一事实源 | 无（独创层） |
 | L1 测量 | [opengeo-audit](https://github.com/cangqiaoGEO/opengeo-audit) | 中国引擎六维可见度诊断与周测 | Profound Monitor / Peec |
 | L2 洞察 | [opengeo-insights](https://github.com/cangqiaoGEO/opengeo-insights) | 意图词、内容差距、竞品对标、地基体检 | Scrunch Insights |

@@ -1,0 +1,40 @@
+site_name: OpenGEO 一看就懂 · 团队图解教程
+site_description: 用最简单的话和最少的字，讲清 OpenGEO 是什么、六层怎么搭、每个人站在哪
+site_url: https://cangqiaogeo.github.io/OpenGEO/learn/
+repo_name: cangqiaoGEO/OpenGEO
+repo_url: https://github.com/cangqiaoGEO/OpenGEO
+site_dir: ../docs/learn
+copyright: Copyright &copy; 2026 仓桥智能 · CC BY-SA 4.0 · 不承诺排名，只承诺诊断-改进-复测
+theme:
+  name: material
+  language: zh
+  palette:
+    - scheme: default
+      primary: deep orange
+      accent: orange
+      toggle: { icon: material/brightness-7, name: 切换到暗色 }
+    - scheme: slate
+      primary: deep orange
+      accent: amber
+      toggle: { icon: material/brightness-4, name: 切换到亮色 }
+  font: { text: Noto Sans SC }
+  features: [navigation.sections, navigation.expand, navigation.top, navigation.footer, toc.follow, content.code.copy]
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - tables
+nav:
+  - 0 · 先看这页: index.md
+  - 1 · 问题｜客户去问 AI 了: p1-problem.md
+  - 2 · 历史｜华强北又来了: p2-history.md
+  - 3 · 全貌｜六层楼: p3-six-floors.md
+  - 4 · L0｜事实库的身份证: p4-facts.md
+  - 5 · L1｜体检报告: p5-audit.md
+  - 6 · L3｜总管和七个员工: p6-skills.md
+  - 7 · 闭环｜转一圈分数说话: p7-loop.md
+  - 8 · 规矩｜裁判和选手: p8-rules.md
+  - 9 · 你｜站在哪一层: p9-you.md
+  - 一图看懂（可保存）: onepage.md
