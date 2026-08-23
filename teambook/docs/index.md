@@ -13,7 +13,7 @@
 
 ## 怎么用这套教程
 
-每页只有**一张大图 + 三句话 + 一道题**。10 页，30 分钟。看完能用一句话讲清每一层，再去读[全员学习手册](https://github.com/cangqiaoGEO/OpenGEO/blob/main/docs/team-handbook.md)和[详解版课程](../course/)。
+每页只有**一张大图 + 三句话 + 一道题**。10 页，30 分钟。看完能用一句话讲清每一层；想了解行业全貌，接着看[行业知识库 ①②](kb1-industry.md)（据弯弓研究院 2026 白皮书整理的导读）；然后再去读[全员学习手册](https://github.com/cangqiaoGEO/OpenGEO/blob/main/docs/team-handbook.md)和[详解版课程](../course/)。
 
 ??? question "自测：OpenGEO 和仓桥是一回事吗？"
     不是。OpenGEO 是开源组织（裁判），仓桥是公司（选手）。对外讲标准说 OpenGEO，讲服务说仓桥。
