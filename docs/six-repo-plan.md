@@ -54,3 +54,23 @@
 | D3 | Index 数据实名策略 | ✅ 默认匿名哈希，品牌方可选实名（已写入 index README/SCHEMA） |
 | D4 | Cloud 托管版是否进开源组织 | ✅ 不进，open-core（已写入 GOVERNANCE） |
 | D5 | 对外发布节奏 | ✅ 双周 release note，GitHub Releases + 公众号 + 知乎（已写入 GOVERNANCE） |
+
+## 六、执行进度（2026-08-23）
+
+**W1–2 骨架：已完成。**
+- 三仓 CI 全绿：spec `okf-lint`（pytest + 示例 bundle lint）、audit `tests`（131 passed）、skills `validate-skills`
+- issue / PR 模板、三阶段里程碑、19 个首批 issue（含 good-first-issue）
+- 仓桥 bundle 通过 lint v0.3（0 errors / 0 warnings）：verified 规范化、无依据的 stable 回退 draft、孤页入 index
+
+**W3–6 已提前落地（可离线部分）：**
+- spec：lint v0.3（W105 index 覆盖率、价格/时长冲突、`--format json`）、RFC-0001 verified 前缀枚举、evidence sources 示例、行业词表 ×3
+- audit：`run_audit.py` 一键流水线（回写 bundle diagnosis/，experimental_score 强制带改进清单）、`brand_compare.py` 对标表、`docs/SCHEMAS.md` 自动生成、周测 cron 脚本与文档
+- skills：事实引用门禁（只引用 stable + human: verified）、S2/S7 指引页、Claude Code 安装脚本、飞书审批流模板、automation lint 门禁
+
+**待人工 / 自有账号的事项（不可由 Agent 代做）：**
+| 仓库 | issue | 需要谁 |
+| --- | --- | --- |
+| spec | #1 channels / intent-words 转 stable | 老板核对 |
+| spec | #2 RFC-0001 批准 | ≥2 维护者 |
+| audit | #1–#3 豆包 / 元宝 / DeepSeek 采集器实测 | 测量层（自有账号、可见浏览器） |
+| skills | #1 WorkBuddy 七技通关、#2 Claude Code 实测 S3 | 执行层 |
