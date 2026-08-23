@@ -69,17 +69,17 @@ OpenGEO 是一个开源组织（[github.com/cangqiaoGEO](https://github.com/cang
 | L4 站点 | [opengeo-agentready](https://github.com/cangqiaoGEO/opengeo-agentready) | llms.txt / JSON-LD / AI 可读页面生成 | Scrunch AXP |
 | L5 基准 | [opengeo-index](https://github.com/cangqiaoGEO/opengeo-index) | 行业 × 城市 × 引擎公开基准 | Profound Index |
 
-> 本仓 `skills/`、`brand-facts/`、`system/` 目录已迁移到对应层仓库，保留至团队评审通过后归档（见 [MIGRATION.md](MIGRATION.md)）；新开发请直接在层仓库进行。
+> 2026-08-23 评审决议：主仓只做门户 + 课程 + 治理，`skills/`、`brand-facts/`、`system/` 已迁出（对照表见 [MIGRATION.md](MIGRATION.md)）。**建设顺序：先 L0 规范 / L1 测量 / L3 执行，L2 / L4 / L5 为第二批。**
 
 定位一句话：**GEO 的开放标准与开源工具层——闭源 SaaS 把「看见」卖 399 美元/月，OpenGEO 把「看见」变成公共品。** 调研与框架全文见 [docs/positioning.md](docs/positioning.md)。
 
 ## 快速开始（三步）
 
-1. **给自己打个分**：按 [`skills/S1-diagnosis/`](skills/S1-diagnosis/) 跑一次品牌诊断，拿到六维基线分数与 P0 清单；
-2. **建品牌事实库**：复制 [`brand-facts/template/`](brand-facts/template/)，填 11 类概念文件（你公司对外口径的唯一底稿）；
+1. **给自己打个分**：按 [opengeo-audit/brand-geo-audit](https://github.com/cangqiaoGEO/opengeo-audit/tree/main/brand-geo-audit) 跑一次品牌诊断，拿到六维基线分数与 P0 清单；
+2. **建品牌事实库**：复制 [opengeo-spec/template](https://github.com/cangqiaoGEO/opengeo-spec/tree/main/template)，填 11 类概念文件（你公司对外口径的唯一底稿）；
 3. **跑 28 天循环**：教材第八章路线图——第 1 周打地基、第 2 周上内容、第 3 周建权威、第 4 周复测对比。
 
-**官方参考实现（v1）：Tencent WorkBuddy。** 按 [`system/workbuddy-implementation.md`](system/workbuddy-implementation.md) 半天即可搭好整套系统：本地文件夹项目=事实库，专家团=总控 Agent，自建 Skill=七技，自动化定时任务=复测闭环，IM 助理=老板审批入口。系统本身平台无关——七技是提示词规格，任何 Agent 平台（Claude Code、扣子、Dify 等）都能实现，欢迎 PR 其他平台的实现。
+**官方参考实现（v1）：Tencent WorkBuddy。** 按 [opengeo-skills/system/workbuddy-implementation.md](https://github.com/cangqiaoGEO/opengeo-skills/blob/main/system/workbuddy-implementation.md) 半天即可搭好整套系统：本地文件夹项目=事实库，专家团=总控 Agent，自建 Skill=七技，自动化定时任务=复测闭环，IM 助理=老板审批入口。系统本身平台无关——七技是提示词规格，任何 Agent 平台（Claude Code、扣子、Dify 等）都能实现，欢迎 PR 其他平台的实现。
 
 ## 案例数据声明
 
@@ -87,17 +87,19 @@ OpenGEO 是一个开源组织（[github.com/cangqiaoGEO](https://github.com/cang
 
 ## 公开自测：我们自己就是第一个案例
 
-[`brand-facts/examples/cangqiao/`](brand-facts/examples/cangqiao/) 是本仓库的第一个**真实** bundle——仓桥智能自己的品牌事实库。基线诊断（2026-08-21）：**综合 18.0 分，D 级「缺失，几乎不可见」**——精确品牌词在搜索引擎零结果。我们把这个低分公开，按仓库里的方法执行 28 天，每周复测更新分数。**不信方法有效，就看这个分数动不动。**
+[opengeo-spec/examples/cangqiao](https://github.com/cangqiaoGEO/opengeo-spec/tree/main/examples/cangqiao) 是本组织的第一个**真实** bundle——仓桥智能自己的品牌事实库。基线诊断（2026-08-21）：**综合 18.0 分，D 级「缺失，几乎不可见」**——精确品牌词在搜索引擎零结果。我们把这个低分公开，按仓库里的方法执行 28 天，每周复测更新分数。**不信方法有效，就看这个分数动不动。**
 
 ## Roadmap
 
 - [x] v0.2：真实品牌完整事实库 bundle 示例（仓桥智能，含基线诊断与周测表，公开自测中）
-- [ ] v0.3：诊断报告模板多语言化
-- [ ] v0.4：事实库 lint 工具（过期检测 / 口径冲突 / 断链 / 孤页）
+- [ ] v0.3：L1 自动采集器（三引擎）+ L3 WorkBuddy 七技通关 —— 见各层仓库 Roadmap
+- [ ] v0.4：L0 事实库 lint 在 CI 运行；第二批 L2 / L4 / L5 启动
+
+每两周发布一次组织级 release note（中文，GitHub Releases + 公众号 + 知乎）。
 
 ## 许可证
 
-- 代码（`skills/` 下脚本等）：[MIT](LICENSE)
+- 代码（各层仓库脚本）：[MIT](LICENSE)；opengeo-index 数据：CC BY 4.0
 - 教材与文档：[CC BY-SA 4.0](LICENSE-docs.md)——你可以自由使用与改编（包括商用授课），但必须署名并以相同协议共享。**选择 ShareAlike，就是为了让任何人无法把公开的方法改头换面变回信息差生意。**
 
 ---

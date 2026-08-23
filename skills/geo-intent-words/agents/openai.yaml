@@ -1,4 +1,0 @@
-interface:
-  display_name: "GEO Intent Words"
-  short_description: "Generate GEO intent words with fact validation"
-  default_prompt: "拉意图词：从指定品牌事实库生成三层意图清单并检查覆盖状态。"

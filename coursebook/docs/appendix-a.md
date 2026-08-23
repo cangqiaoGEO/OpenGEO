@@ -16,7 +16,7 @@
 | 转化入口 | 联系、预约、试用、购买方式 |
 | 信息状态 | 来源、负责人、更新时间 |
 
-进阶版（OKF 格式、可被 Agent 直接引用）见 [brand-facts/template/](https://github.com/cangqiaoGEO/OpenGEO/tree/main/brand-facts/template)，真实示例见 [brand-facts/examples/cangqiao/](https://github.com/cangqiaoGEO/OpenGEO/tree/main/brand-facts/examples/cangqiao)。
+进阶版（OKF 格式、可被 Agent 直接引用）见 [opengeo-spec/template](https://github.com/cangqiaoGEO/opengeo-spec/tree/main/template)，真实示例见 [opengeo-spec/examples/cangqiao](https://github.com/cangqiaoGEO/opengeo-spec/tree/main/examples/cangqiao)。
 
 ## A2 AI 员工首篇文章提示词（可直接粘贴）
 
@@ -40,4 +40,4 @@
 
 ## A4 七技（Skills）创建指令
 
-S1~S7 全部开源：[skills/](https://github.com/cangqiaoGEO/OpenGEO/tree/main/skills)——每个文件含可直接粘贴到 Agent 平台的创建指令。
+S1~S7 全部开源：[skills/](https://github.com/cangqiaoGEO/opengeo-skills) 与 [opengeo-audit](https://github.com/cangqiaoGEO/opengeo-audit) / [opengeo-insights](https://github.com/cangqiaoGEO/opengeo-insights)——每个文件含可直接粘贴到 Agent 平台的创建指令。

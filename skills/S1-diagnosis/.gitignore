@@ -1,7 +1,0 @@
-.env
-.env.*
-!.env.example
-node_modules/
-work/
-__pycache__/
-*.pyc
