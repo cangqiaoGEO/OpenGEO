@@ -18,4 +18,4 @@
 4. **验收**：10 题答对 8 题。
 
 !!! tip "一句话"
-    认领 issue 就是上岗：[opengeo-spec](https://github.com/cangqiaoGEO/opengeo-spec/issues) · [opengeo-audit](https://github.com/cangqiaoGEO/opengeo-audit/issues) · [opengeo-skills](https://github.com/cangqiaoGEO/opengeo-skills/issues)
+    认领 issue 就是上岗：[opengeo-spec](https://github.com/cangqiaoGEO/opengeo-spec/issues) · [opengeo-platform](https://github.com/cangqiaoGEO/opengeo-platform/issues) · [opengeo-skills](https://github.com/cangqiaoGEO/opengeo-skills/issues)

@@ -40,4 +40,4 @@
 
 ## A4 七技（Skills）创建指令
 
-S1~S7 全部开源：[skills/](https://github.com/cangqiaoGEO/opengeo-skills) 与 [opengeo-audit](https://github.com/cangqiaoGEO/opengeo-audit) / [opengeo-insights](https://github.com/cangqiaoGEO/opengeo-insights)——每个文件含可直接粘贴到 Agent 平台的创建指令。
+S1~S7 全部开源：[opengeo-skills](https://github.com/cangqiaoGEO/opengeo-skills)（S1–S7 全量）与 [opengeo-agentready](https://github.com/cangqiaoGEO/opengeo-agentready)（S6）——每个文件含可直接粘贴到 Agent 平台的创建指令。
