@@ -57,15 +57,16 @@ GEO（Generative Engine Optimization，生成式引擎优化）正在成为企�
 
 ## 组织与仓库地图（六层产品框架）
 
-OpenGEO 是一个开源组织（[github.com/cangqiaoGEO](https://github.com/cangqiaoGEO)），按「六层 + 治理」拆为独立仓库，本仓为门户：
+OpenGEO 是一个开源组织（[github.com/cangqiaoGEO](https://github.com/cangqiaoGEO)），按「法 / 器 / 术 / 道」四角色收敛为 6 个活跃仓库（重构方案 v2，2026-08-28），本仓为门户。
+法只写一遍（spec：[BUNDLE.md](https://github.com/cangqiaoGEO/opengeo-spec/blob/main/BUNDLE.md) · [METRICS.md](https://github.com/cangqiaoGEO/opengeo-spec/blob/main/METRICS.md) · [playbooks](https://github.com/cangqiaoGEO/opengeo-spec/tree/main/playbooks)），两个 runtime（platform 自动化 / Agent 人机）读同一份法，遥测统一回流 platform：
+
 
 | 层 | 仓库 | 一句话 | 对标 |
 | --- | --- | --- | --- |
 | 门户 | **OpenGEO**（本仓） | 初衷、口径宪章、[详解教程](https://cangqiaogeo.github.io/OpenGEO/course/)、[团队图解教程](https://cangqiaogeo.github.io/OpenGEO/learn/)、[避坑指南](guides/)、[选型评分卡](guides/geo-vendor-scorecard.md)、官网 | — |
 | L0 规范 | [opengeo-spec](https://github.com/cangqiaoGEO/opengeo-spec) | 品牌事实库 OKF 规范与模板——唯一事实源 | 无（独创层） |
-| L1 测量 | [opengeo-audit](https://github.com/cangqiaoGEO/opengeo-audit) | 中国引擎六维可见度诊断与周测 | Profound Monitor / Peec |
-| L2 洞察 | [opengeo-insights](https://github.com/cangqiaoGEO/opengeo-insights) | 意图词、内容差距、竞品对标、地基体检 | Scrunch Insights |
-| L3 执行 | [opengeo-skills](https://github.com/cangqiaoGEO/opengeo-skills) | 七技规格、总控 Agent、平台实现（WorkBuddy v1） | Profound Agents / Frase |
+| L1+L2 测量与洞察 | [opengeo-platform](https://github.com/cangqiaoGEO/opengeo-platform) | 自动化证据机器：runs / SoV / 引用池 / Studio 内容流水线 / 归因闭环（含原 insights 采集器） | Profound / Peec / Scrunch |
+| L3 执行 | [opengeo-skills](https://github.com/cangqiaoGEO/opengeo-skills) | 七技全量（S1 诊断 · S2 意图词 · S3 内容 · S4 短视频 · S5 发布 · S7 周测）+ 总控 Agent + WorkBuddy 实现 | Profound Agents / Frase |
 | L4 站点 | [opengeo-agentready](https://github.com/cangqiaoGEO/opengeo-agentready) | llms.txt / JSON-LD / AI 可读页面生成 | Scrunch AXP |
 | L5 基准 | [opengeo-index](https://github.com/cangqiaoGEO/opengeo-index) | **OpenGEO Index（可见度指数）**：行业 × 城市 × 引擎公开基准 | Profound Index |
 
@@ -75,7 +76,7 @@ OpenGEO 是一个开源组织（[github.com/cangqiaoGEO](https://github.com/cang
 
 ## 快速开始（三步）
 
-1. **给自己打个分**：按 [opengeo-audit/brand-geo-audit](https://github.com/cangqiaoGEO/opengeo-audit/tree/main/brand-geo-audit) 跑一次品牌诊断，拿到六维基线分数与 P0 清单；
+1. **给自己打个分**：按 [opengeo-skills/S1-audit](https://github.com/cangqiaoGEO/opengeo-skills/tree/main/S1-audit) 跑一次品牌诊断，拿到六维基线分数与 P0 清单；
 2. **建品牌事实库**：复制 [opengeo-spec/template](https://github.com/cangqiaoGEO/opengeo-spec/tree/main/template)，填 11 类概念文件（你公司对外口径的唯一底稿）；
 3. **跑 28 天循环**：教材第八章路线图——第 1 周打地基、第 2 周上内容、第 3 周建权威、第 4 周复测对比。
 
@@ -105,3 +106,11 @@ OpenGEO 是一个开源组织（[github.com/cangqiaoGEO](https://github.com/cang
 ---
 
 仓桥智能科技 · 杭州 ｜ 让每一条卖点都答得出：谁写的、谁核的、过没过期。
+
+## 归档说明（2026-08-28）
+
+opengeo-audit 与 opengeo-insights 已迁移归档（内容去处见各自 README）：六维口径升格为
+[指标宪章](https://github.com/cangqiaoGEO/opengeo-spec/blob/main/METRICS.md)，S1/S2/S7 技能全量入
+[opengeo-skills](https://github.com/cangqiaoGEO/opengeo-skills)，S6 入
+[opengeo-agentready](https://github.com/cangqiaoGEO/opengeo-agentready)，采集器与分析台入
+[opengeo-platform/tools](https://github.com/cangqiaoGEO/opengeo-platform/tree/main/tools)。
