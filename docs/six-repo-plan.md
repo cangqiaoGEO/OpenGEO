@@ -1,3 +1,5 @@
+> **⚠️ 2026-08-29 v3 更新**：本方案已升级为**双引擎架构**——「器」层从单引擎（platform 测量）扩为双引擎（platform 测量 + **opengeo-matrix 执行**，postiz-app 分叉）。最新架构、仓库清单、open-core 边界与落地路线以 [dual-engine-architecture.md](dual-engine-architecture.md) 为准；本文档保留作历史与 9 人分工/里程碑参考。
+
 # OpenGEO 组织六仓并行建设方案（V1.1 · 2026-08-23 评审通过）
 
 > 前提：团队 9 人，前期全部由仓桥智能投入，按评审决议先建 L0 / L1 / L3；组织 github.com/cangqiaoGEO 已按六层建好 6 个仓库 + 组织资料页，OpenGEO 主仓改为「组织门户 + 课程 + 治理」。
